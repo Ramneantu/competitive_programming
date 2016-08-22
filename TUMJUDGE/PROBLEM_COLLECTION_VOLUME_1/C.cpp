@@ -64,25 +64,17 @@ double evalRPN(string rpn, map<char, int> values){
     if(is_letter(rpn[i])){
       s.push(values[rpn[i]]);
     }
-    else if(rpn[i] == '+'){
-      double a = s.top(); s.pop();
-      double b = s.top(); s.pop();
-      s.push(a + b);
-    }
-    else if(rpn[i] == '-'){
-      double b = s.top(); s.pop();
-      double a = s.top(); s.pop();
-      s.push(a - b);
-    }
-    else if(rpn[i] == '*'){
-      double a = s.top(); s.pop();
-      double b = s.top(); s.pop();
-      s.push(a * b);
-    }
-    else if(rpn[i] == '/'){
-      double b = s.top(); s.pop();
-      double a = s.top(); s.pop();
-      s.push(a*1.0 / b);
+    else if(strchr("+-*/", rpn[i]) != NULL){
+         double b = s.top(); s.pop();
+         double a = s.top(); s.pop();
+        if(rpn[i] == '+')
+            s.push(a+b);
+        else if(rpn[i] == '-')
+            s.push(a-b);
+        else if(rpn[i] == '*')
+            s.push(a*b);
+        else if(rpn[i] == '/')
+            s.push(a*1.0/b);
     }
     i++;
   }
@@ -114,20 +106,12 @@ void bk(int k){
   }
   else{
     REP(i, 0, n-1){
-      if(k > 0){
-        if(!taken[i]){
+      if((k > 0 && !taken[i]) || k == 0){
           taken[i] = true;
           sol[k] = i;
           bk(k+1);
           taken[i] = false;
         }
-      }
-      else{
-        taken[i] = true;
-        sol[k] = i;
-        bk(k+1);
-        taken[i] = false;
-      }
     }
   }
 }
@@ -135,31 +119,6 @@ void bk(int k){
 
 int main(){
 
-/*
-  vals['a'] = 3;
-  vals['b'] = 2;
-  vals['c'] = 4;
-  string expr = "(a+b)";
-  rpn = RPN(expr);
-  assert(rpn == "ab+");
-  assert(evalRPN(rpn, vals) == 5);
-  expr = "((a+b)*c)";
-  rpn = RPN(expr);
-  assert(rpn == "ab+c*");
-  assert(evalRPN(rpn, vals) == 20);
-  expr = "a-((b*c)+d)";
-  rpn = RPN(expr);
-  assert(rpn == "abc*d+-");
-  expr = "a*b-(c*d)";
-  rpn = RPN(expr);
-  assert(rpn == "ab*cd*-");
-  vals['a'] = 2;
-  vals['b'] = 3;
-  expr = "a/b*c";
-  rpn = RPN(expr);
-  assert(rpn == "ab/c*");
-  assert(int(evalRPN(rpn, vals)) == 2);
-    */
   int T;
   cin >> T;
   REP(t,1,T){
@@ -194,7 +153,6 @@ int main(){
     values.clear();
     unknowns.clear();
     vals.clear();
-
   }
 
   return 0;
