@@ -2,6 +2,9 @@
 #include <deque>
 #include <utility>
 #include <algorithm>
+#include <stack>
+#include "../../../../AlgoDSLibrary/src/datastructures/Deque/Deque.hpp"
+
 using namespace std;
 
 void insert_into_deque(int arr[], deque<int> &dq, int pos){
@@ -11,10 +14,20 @@ void insert_into_deque(int arr[], deque<int> &dq, int pos){
     dq.push_back(pos);
 }
 
+void insert_into_deque(int arr[], mydeque::Deque<int> &dq, int pos){
+    while(!dq.empty() && arr[dq.back()] <= arr[pos]){
+        dq.pop_back();
+    }
+    dq.push_back(pos);
+}
+
+
+
 void printKMax(int arr[], int n, int k){
     if(k > n)
         return;
-    deque<int> dq;
+    //deque<int> dq;
+    mydeque::Deque<int> dq;
     for(int i=0; i<k; ++i){
         insert_into_deque(arr, dq, i);
     }
