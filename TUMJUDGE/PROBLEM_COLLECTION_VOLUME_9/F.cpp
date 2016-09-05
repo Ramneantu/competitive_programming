@@ -1,37 +1,66 @@
 #include <iostream>
-#include <cstdio>
-#include <vector>
+#include <algorithm>
+#include <numeric>
+#include <set>
+#include <map>
 #include <queue>
+#include <iostream>
+#include <sstream>
+#include <cstdio>
+#include <cmath>
+#include <ctime>
+#include <cstring>
+#include <cctype>
+#include <cassert>
+#include <limits>
+#include <functional>
+#include <bitset>
 #include <utility>
 
+#define rep(i,a,b) for(ll i=ll(a); i<=ll(b); ++i)
+#define rev(i,b,a) for(ll i=ll(b); i>=ll(a); --i)
+#define mp(x,y) make_pair((x),(y))
+#define pb(x) push_back(x)
+#define all(c) c.begin(), c.end()
+#define tr(container, it) for(auto it=(container).begin(); it != (container).end(); ++it)
+#define sqr(x) ((x)*(x))
 using namespace std;
 
-#define REP(i, a, b) for(ll i=ll(a); i <= ll(b); ++i)
-#define NMAX 60000
-
-typedef long long ll;
+typedef unsigned long long ll;
+typedef vector<ll> vi;
 typedef pair<ll, ll> ii;
+typedef vector<ii> vii;
 
 
-priority_queue<pair<ll, ii> > EdgeList;
-vector<ll> pset(NMAX);
+priority_queue<pair<ll, ii>, vector<pair<ll, ii> >, std::greater<pair<ll, ii> > > EdgeList;
+vector<pair<ll, ll> > p;
 
-void initSet(ll _size) {
-  pset.resize(_size);
-  REP(i, 1, _size)
-    pset[i] = i;
+void initSet(ll n){
+  p.resize(n+1);
+  rep(i,1,n){
+    p[i].first = i;
+    p[i].second = 1;
+  }
 }
-
 ll findSet(ll i){
-  return (pset[i] == i) ? i : (pset[i] = findSet(pset[i]));
+  if(p[i].first == i)
+    return i;
+  ll pi = findSet(p[i].first);
+  p[i].first = pi;
+  return pi;
 }
-
+bool isSameSet(ll i, ll j){ return findSet(p[i].first) == findSet(p[j].first); }
 void unionSet(ll i, ll j){
-  pset[findSet(i)] = findSet(j);
-}
-
-bool isSameSet(ll i, ll j){
-  return findSet(i) == findSet(j);
+  ll pj = findSet(j);
+  ll pi = findSet(i);
+  if(p[pi].second > p[pj].second)
+    p[pj].first = pi;
+  else if(p[pj].second > p[pi].second)
+      p[pi].first = pj;
+  else{
+    p[pi].first = pj;
+    p[pj].second++;
+  }
 }
 
 int main(){
@@ -39,15 +68,13 @@ int main(){
   ll n, m, l;
   ll availableCost = 0;
   cin >> n >> m >> l;
-  REP(i, 1, m){
+  rep(i, 1, m){
     ll a, b, c;
     cin >> a >> b >> c;
-    EdgeList.push(make_pair(-c, make_pair(a, b)));
+    EdgeList.push(make_pair(c, make_pair(a, b)));
     if(i <= l)
       availableCost += c;
   }
-
-  //cout << "availableCost: " << availableCost << "\n";
 
   // Kruskal
   ll mst_cost = 0;
@@ -55,48 +82,17 @@ int main(){
   ll mst_edges = 0;
   while(!EdgeList.empty()){
     pair<ll, ii> front = EdgeList.top(); EdgeList.pop();
-    //cout << "pick: " << front.second.first << "-" << front.second.second << " " << -front.first << "\n";
     if(!isSameSet(front.second.first, front.second.second)){
-      mst_cost += ll(-front.first);
-      mst_edges++;
+      mst_cost += ll(front.first);
       unionSet(front.second.first, front.second.second);
+      mst_edges++;
     }
-    if(mst_edges == n)
-      break;
-
-      /*
-      REP(i, 1, n)
-        cout << pset[i] << " ";
-      cout << "\n";
-      */
   }
 
-
-  /*
-  // check if you have only one connected component, a MST!
-  REP(i, 1, n)
-    cout << pset[i] << " ";
-  cout << "\n";
-  */
-
-  // check if availableCost >= mst_cost
-  bool is_possible = true;
-  REP(i, 2, n)
-    if(pset[i] != pset[i-1])
-      is_possible = false;
-  if(mst_cost > availableCost)// || !is_possible)
+  if(mst_cost > availableCost || mst_edges < n-1)
     cout << "impossible\n";
   else
     cout << "possible\n";
-
-
-  /*
-  cout << "availableCost: " << availableCost << "\n";
-  while(!EdgeList.empty()){
-    cout << EdgeList.top().second.first << " " << EdgeList.top().second.second << " " << EdgeList.top().first << "\n";
-    EdgeList.pop();
-  }
-  */
 
   return 0;
 }
