@@ -61,17 +61,8 @@ int main() {
             if((sol[j]+r) % k == 0)
                 add = false;
         if(add){
-            if(ct > 1){
-                sol.push_back(r);
-                if(2*r % k)
-                    total += ct;
-                else
-                    total += 1;
-            }
-            else{
-                sol.pb(r);
-                total += 1;
-            }
+          sol.pb(r);
+          total += ct;
         }
     }
     cout << total << endl;
