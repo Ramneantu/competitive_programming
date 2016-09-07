@@ -1,3 +1,6 @@
+/**
+TAGS: modulo-arithmetic greedy
+**/
 #include <iostream>
 #include <algorithm>
 #include <numeric>
