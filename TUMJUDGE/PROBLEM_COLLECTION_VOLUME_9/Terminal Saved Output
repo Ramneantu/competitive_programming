@@ -1,0 +1,865 @@
+Last login: Mon Sep  5 11:43:00 on ttys001
+dhcp-10-176-73-31:~ whoiscris$ cd Documents/M
+MATLAB/      My_Projects/ 
+dhcp-10-176-73-31:~ whoiscris$ cd Documents/My_Projects/sportsofmind/CompetitiveProgramming/TUMJUDGE/PROBLEM_COLLECTION_VOLUME_9
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ clear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ g++ F.cpp 
+F.cpp:21:13: error: expected ';' after expression
+  rep(i,1,n){
+            ^
+            ;
+F.cpp:21:7: error: use of undeclared identifier 'i'
+  rep(i,1,n){
+      ^
+F.cpp:22:7: error: use of undeclared identifier 'i'
+    p[i].first = i;
+      ^
+F.cpp:22:18: error: use of undeclared identifier 'i'
+    p[i].first = i;
+                 ^
+F.cpp:23:7: error: use of undeclared identifier 'i'
+    p[i].second = 1;
+      ^
+F.cpp:87:8: error: use of undeclared identifier 'pset'
+    if(pset[i] != pset[i-1])
+       ^
+F.cpp:87:19: error: use of undeclared identifier 'pset'
+    if(pset[i] != pset[i-1])
+                  ^
+7 errors generated.
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ clear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ g++ F.cpp 
+F.cpp:71:15: error: expected ';' after expression
+  REP(i, 1, m){
+              ^
+              ;
+F.cpp:71:7: error: use of undeclared identifier 'i'
+  REP(i, 1, m){
+      ^
+F.cpp:75:8: error: use of undeclared identifier 'i'
+    if(i <= l)
+       ^
+F.cpp:105:15: error: expected ';' after expression
+  REP(i, 2, n)
+              ^
+              ;
+F.cpp:105:7: error: use of undeclared identifier 'i'
+  REP(i, 2, n)
+      ^
+F.cpp:106:10: error: use of undeclared identifier 'i'
+    if(p[i] != p[i-1])
+         ^
+F.cpp:106:18: error: use of undeclared identifier 'i'
+    if(p[i] != p[i-1])
+                 ^
+7 errors generated.
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ g++ F.cpp 
+F.cpp:105:15: error: expected ';' after expression
+  REP(i, 2, n)
+              ^
+              ;
+F.cpp:105:7: error: use of undeclared identifier 'i'
+  REP(i, 2, n)
+      ^
+F.cpp:106:10: error: use of undeclared identifier 'i'
+    if(p[i] != p[i-1])
+         ^
+F.cpp:106:18: error: use of undeclared identifier 'i'
+    if(p[i] != p[i-1])
+                 ^
+4 errors generated.
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ clear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ g++ F.cpp 
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ ./a < F.in 
+-bash: ./a: No such file or directory
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ ls
+A.cpp	B.cpp	E.class	E.java	F.in	H.in	J.in
+A.in	B.in	E.in	F.cpp	H.cpp	J.cpp	a.out
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ ./a.out < F.in 
+possible
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ ./a.out < F.in 
+possible
+a.out(1391,0x7fff79f7c000) malloc: *** error for object 0x7fcab0c03060: incorrect checksum for freed object - object was probably modified after being freed.
+*** set a breakpoint in malloc_error_break to debug
+Abort trap: 6
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ ./a.out 
+^C
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ ./a.out < F.in 
+possible
+a.out(1394,0x7fff79f7c000) malloc: *** error for object 0x7fd4e9c03060: incorrect checksum for freed object - object was probably modified after being freed.
+*** set a breakpoint in malloc_error_break to debug
+Abort trap: 6
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ g++ F.cpp 
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ ./a.out < F.in 
+possible
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ clear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ ./a.out < F.in 
+impossible
+a.out(1404,0x7fff79f7c000) malloc: *** error for object 0x7fdd19c03108: incorrect checksum for freed object - object was probably modified after being freed.
+*** set a breakpoint in malloc_error_break to debug
+Abort trap: 6
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ g++ F.cpp 
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ ./a.out < F.in 
+impossible
+a.out(1410,0x7fff79f7c000) malloc: *** error for object 0x7f9290c03108: incorrect checksum for freed object - object was probably modified after being freed.
+*** set a breakpoint in malloc_error_break to debug
+Abort trap: 6
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ g++ F.cpp 
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ ./a.out < F.in 
+a.out(1416,0x7fff79f7c000) malloc: *** error for object 0x7fa002403108: incorrect checksum for freed object - object was probably modified after being freed.
+*** set a breakpoint in malloc_error_break to debug
+Abort trap: 6
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ g++ F.cpp 
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ ./a.out < F.in 
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ g++ F.cpp 
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ ./a.out < F.in 
+a.out(1430,0x7fff79f7c000) malloc: *** error for object 0x7fccc8403108: incorrect checksum for freed object - object was probably modified after being freed.
+*** set a breakpoint in malloc_error_break to debug
+Abort trap: 6
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ clear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ g++ F.cpp 
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ ./a.out < F.in 
+impossible
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ clear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ ./a.out < F.in 
+possible
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ clear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ g++ F.cpp 
+F.cpp:29:16: error: use of undeclared identifier 'll'
+typedef vector<ll> vi;
+               ^
+F.cpp:30:14: error: use of undeclared identifier 'll'
+typedef pair<ll, ll> ii;
+             ^
+F.cpp:88:31: error: member reference base type 'int' is not a structure or
+      union
+    if(!isSameSet(front.second.first, front.second.second)){
+                  ~~~~~~~~~~~~^~~~~~
+F.cpp:88:51: error: member reference base type 'int' is not a structure or
+      union
+    if(!isSameSet(front.second.first, front.second.second)){
+                                      ~~~~~~~~~~~~^~~~~~~
+F.cpp:91:28: error: member reference base type 'int' is not a structure or
+      union
+      unionSet(front.second.first, front.second.second);
+               ~~~~~~~~~~~~^~~~~~
+F.cpp:91:48: error: member reference base type 'int' is not a structure or
+      union
+      unionSet(front.second.first, front.second.second);
+                                   ~~~~~~~~~~~~^~~~~~~
+In file included from F.cpp:1:
+In file included from /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/iostream:38:
+In file included from /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/ios:216:
+In file included from /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/__locale:15:
+In file included from /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/string:439:
+In file included from /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/algorithm:627:
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/utility:278:33: error: 
+      no viable conversion from 'const std::__1::pair<unsigned long long,
+      unsigned long long>' to 'int'
+            : first(__p.first), second(__p.second) {}
+                                ^      ~~~~~~~~~~
+F.cpp:74:19: note: in instantiation of function template specialization
+      'std::__1::pair<unsigned long long, int>::pair<unsigned long long,
+      std::__1::pair<unsigned long long, unsigned long long> >' requested
+      here
+    EdgeList.push(make_pair(-c, make_pair(a, b)));
+                  ^
+7 errors generated.
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ g++ F.cpp clear
+clang: error: no such file or directory: 'clear'
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ g++ F.cpp 
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ clear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ ./a.out < F.in 
+possible
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ clear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ ./a.out < F.in 
+impossible
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ ./a.out < F.in 
+impossible
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ clear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ ./a.out < F.in 
+impossible
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ ./a.out < F.in 
+possible
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ g++ F.cpp 
+In file included from F.cpp:6:
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/queue:391:38: error: 
+      no type named 'value_type' in 'std::__1::pair<unsigned long long,
+      std::__1::pair<unsigned long long, unsigned long long> >'
+    typedef typename container_type::value_type      value_type;
+            ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~
+F.cpp:35:49: note: in instantiation of template class
+      'std::__1::priority_queue<unsigned long long, std::__1::pair<unsigned
+      long long, std::__1::pair<unsigned long long, unsigned long long> >,
+      std::__1::greater<unsigned long long> >' requested here
+priority_queue<ll, pair<ll, ii> , greater<ll> > EdgeList;
+                                                ^
+In file included from F.cpp:6:
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/queue:392:38: error: 
+      no type named 'reference' in 'std::__1::pair<unsigned long long,
+      std::__1::pair<unsigned long long, unsigned long long> >'
+    typedef typename container_type::reference       reference;
+            ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/queue:393:38: error: 
+      no type named 'const_reference' in 'std::__1::pair<unsigned long
+      long, std::__1::pair<unsigned long long, unsigned long long> >'
+    typedef typename container_type::const_reference const_reference;
+            ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/queue:394:38: error: 
+      no type named 'size_type' in 'std::__1::pair<unsigned long long,
+      std::__1::pair<unsigned long long, unsigned long long> >'
+    typedef typename container_type::size_type       size_type;
+            ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+4 errors generated.
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ g++ F.cpp 
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ g++ F.cpp 
+dhcp-10-176-73-31:PROBLEM_COLLECTION_VOLUME_9 whoiscris$ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
