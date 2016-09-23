@@ -73,7 +73,7 @@ int main(){
   fin >> n;
   vector<vector<int> > M(n, vector<int>(n));
   D.resize(n, vector<int>(n,0));
-  unordered_map<int, vector<pair<int,int> > > H;
+  vector<vector<pair<int,int> > > H(HMAX+1);
   rep(i,0,n-1)
     rep(j,0,n-1){
       fin >> M[i][j];
@@ -84,24 +84,22 @@ int main(){
   int dmax = -1;
   int mi, mj;
   rep(i,0,HMAX){
-    if(H.find(i) != H.end()){
-      rep(j,0,H[i].size()-1){
-        int ii = H[i][j].first;
-        int jj = H[i][j].second;
-        rep(k,0,3){
-          int ni = ii + di[k];
-          int nj = jj + dj[k];
-          if(ni < n && ni >= 0 && nj < n && nj >= 0 &&
-            M[ni][nj] < M[ii][jj]){
-              D[ii][jj] = max(D[ii][jj], D[ni][nj]);
-          }
+    rep(j,0,H[i].size()-1){
+      int ii = H[i][j].first;
+      int jj = H[i][j].second;
+      rep(k,0,3){
+        int ni = ii + di[k];
+        int nj = jj + dj[k];
+        if(ni < n && ni >= 0 && nj < n && nj >= 0 &&
+          M[ni][nj] < M[ii][jj]){
+            D[ii][jj] = max(D[ii][jj], D[ni][nj]);
         }
-        D[ii][jj]++;
-        if(dmax < D[ii][jj]){
-          dmax = D[ii][jj];
-          mi = ii;
-          mj = jj;
-        }
+      }
+      D[ii][jj]++;
+      if(dmax < D[ii][jj]){
+        dmax = D[ii][jj];
+        mi = ii;
+        mj = jj;
       }
     }
   }
