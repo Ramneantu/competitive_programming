@@ -43,58 +43,71 @@ typedef vector<ii> vii;
 typedef long long ll;
 
 #define HMAX 16384
+#define NMAX 1026
+#define SMAX 6200
 
-ifstream fin("alpin.in");
-ofstream fout("alpin.out");
+FILE *f = fopen("alpin.in", "r");
+FILE *g = fopen("alpin.out", "w");
 int di[4] = {0,-1,0,1};
 int dj[4] = {-1,0,1,0};
 int n;
-vector<vector<int> > D;
+int M[NMAX][NMAX];
+int D[NMAX][NMAX];
 void print_sol(int i, int j){
-  if(D[i][j] == 1){
-    fout << i+1 << " " << j+1 << endl;
-  }
+  if(D[i][j] == 1)
+    fprintf(g, "%d %d\n", i, j);
   else{
-    rep(k,0,3){
-      int ni = i + di[k];
-      int nj = j + dj[k];
-      if(ni < n && ni >= 0 && nj < n && nj >= 0 && D[ni][nj] == D[i][j]-1){
-        print_sol(ni, nj);
-        fout << i+1 << " " << j+1 << endl;
-        break;
-      }
-    }
+      if(D[i][j-1] == D[i][j]-1)
+        print_sol(i, j-1);
+      else if(D[i-1][j] == D[i][j]-1)
+          print_sol(i-1, j);
+      else if(D[i][j+1] == D[i][j]-1)
+          print_sol(i, j+1);
+      else if(D[i+1][j] == D[i][j]-1)
+          print_sol(i+1, j);
+      fprintf(g, "%d %d\n", i, j);
   }
 }
 
 
 int main(){
 
-  fin >> n;
-  vector<vector<int> > M(n, vector<int>(n));
-  D.resize(n, vector<int>(n,0));
+  fscanf(f, "%d\n", &n);
   vector<vector<pair<int,int> > > H(HMAX+1);
-  rep(i,0,n-1)
-    rep(j,0,n-1){
-      fin >> M[i][j];
-      H[M[i][j]].push_back(make_pair(i,j));
-    }
+  char s[SMAX];
+  char* pch;
+  int j;
+  rep(i,1,n){
+      j=1;
+      fgets(s, SMAX, f);
+      pch = strtok(s, " ");
+      while(pch){
+        M[i][j] = atoi(pch);
+        H[M[i][j]].push_back(make_pair(i,j));
+        j++;
+        pch = strtok(NULL, " ");
+      }
+  }
 
+  rep(i,0,n+1){
+    M[0][i] = M[n+1][i] = M[i][0] = M[n+1][i] = -1;
+    D[0][i] = D[n+1][i] = D[i][0] = D[n+1][i] = -1;
+  }
 
   int dmax = -1;
-  int mi, mj;
+  int mi, mj, ii, jj;
   rep(i,0,HMAX){
     rep(j,0,H[i].size()-1){
-      int ii = H[i][j].first;
-      int jj = H[i][j].second;
-      rep(k,0,3){
-        int ni = ii + di[k];
-        int nj = jj + dj[k];
-        if(ni < n && ni >= 0 && nj < n && nj >= 0 &&
-          M[ni][nj] < M[ii][jj]){
-            D[ii][jj] = max(D[ii][jj], D[ni][nj]);
-        }
-      }
+      ii = H[i][j].first;
+      jj = H[i][j].second;
+      if(M[ii][jj-1] < M[ii][jj])
+          D[ii][jj] = max(D[ii][jj], D[ii][jj-1]);
+      if(M[ii-1][jj] < M[ii][jj])
+          D[ii][jj] = max(D[ii][jj], D[ii-1][jj]);
+      if(M[ii][jj+1] < M[ii][jj])
+          D[ii][jj] = max(D[ii][jj], D[ii][jj+1]);
+      if(M[ii+1][jj] < M[ii][jj])
+          D[ii][jj] = max(D[ii][jj], D[ii+1][jj]);
       D[ii][jj]++;
       if(dmax < D[ii][jj]){
         dmax = D[ii][jj];
@@ -104,7 +117,7 @@ int main(){
     }
   }
 
-  fout << dmax << endl;
+  fprintf(g, "%d\n", dmax);
   print_sol(mi,mj);
 
   return 0;
