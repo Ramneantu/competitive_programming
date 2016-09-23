@@ -34,6 +34,8 @@
 #define sqr(x) ((x)*(x))
 #define sz(a) int((a).size())
 #define mod(a,n) ((a) < 0 ? ((n)+(a)) : ((a)%(n)))
+#define mout(M,n,m) rep(i,0,(n)-1){ rep(j,0,(m)-1) cout << (M)[i][j] << " ";  cout << "\n"; }
+
 using namespace std;
 
 typedef vector<int> vi;
