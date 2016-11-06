@@ -102,6 +102,7 @@ int main(){
   ll duration;
 
   t1 = chrono::high_resolution_clock::now();
+  /*
   int t;
   cin >> t;
   rep(_t,1,t){
@@ -149,6 +150,11 @@ int main(){
     else
       cout << "no\n";
   }
+  */
+  vector<vector<int> > V(200000, vector<int>(100, 0));
+  rep(i,0, 200000-1)
+    rep(j,0,99)
+        V[i][j]++;
   t2 = chrono::high_resolution_clock::now();
   duration = chrono::duration_cast<chrono::milliseconds>( t2 - t1 ).count();
   cout << "Duration: " << duration << " milliseconds" << endl;
