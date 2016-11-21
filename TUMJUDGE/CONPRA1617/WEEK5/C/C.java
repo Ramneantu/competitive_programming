@@ -1,5 +1,3 @@
-import java.util.Scanner;
-import java.math.BigInteger;
 import java.lang.*;
 
 public class C {
