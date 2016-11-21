@@ -1,8 +1,8 @@
 - [Problem](https://leetcode.com/problems/island-perimeter/)
 
-# What questions to ask before start coding ?
+# What questions to ask before starting to code ?
 - is the grid rectangular ?
-- is there guaranteed to have only one island ?
+- is it guaranteed to have only one island ?
 - how large is the grid ?
 
 # Idea
