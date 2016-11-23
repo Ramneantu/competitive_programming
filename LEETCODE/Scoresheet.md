@@ -9,3 +9,4 @@ Problem     | Correct First Try | Time(min) 1  | Time(min) 2 | Time(min) 3
 [Single Number](https://leetcode.com/problems/single-number/) | `Yes` | 0.43 | |
 [Sum of two integers](https://leetcode.com/problems/sum-of-two-integers/) | No | - | 15 |
 [Assign Cookies](https://leetcode.com/problems/assign-cookies/) | `Yes` | 5 |  |
+[Maximum Depth of a Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/) | `Yes` | 1 | |
