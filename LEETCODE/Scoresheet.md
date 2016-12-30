@@ -13,3 +13,7 @@ Problem     | Difficulty | Correct First Try | Time(min) 1  | Time(min) 2 | Time
 [Add Digits](https://leetcode.com/problems/add-digits/Easy) | Easy | `Yes` | 1 | |
 [Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/) | Easy | `Yes` | 1 | |
 [Move_Zeores](https://leetcode.com/problems/move-zeroes/) | Easy | No | 10 | |
+[excel_sheet_column_number](https://leetcode.com/problems/excel-sheet-column-number/) | Easy | `Yes` | 5 | |
+[valid_anagram](https://leetcode.com/problems/valid-anagram/) | Easy | `Yes` | 1 | |
+[majority_element](https://leetcode.com/problems/majority-element/) | Easy | `Yes` | 7 | |
+[binary_watch](https://leetcode.com/problems/binary-watch/) | Easy | `Yes` | 10 | |
