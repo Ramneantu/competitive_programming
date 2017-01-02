@@ -17,3 +17,8 @@ Problem     | Difficulty | Correct First Try | Time(min) 1  | Time(min) 2 | Time
 [valid_anagram](https://leetcode.com/problems/valid-anagram/) | Easy | `Yes` | 1 | |
 [majority_element](https://leetcode.com/problems/majority-element/) | Easy | `Yes` | 7 | |
 [binary_watch](https://leetcode.com/problems/binary-watch/) | Easy | `Yes` | 10 | |
+[reverse_linked_list](https://leetcode.com/problems/reverse-linked-list/) | Easy | `Yes` | 8.42 | |
+[roman_to_integer](https://leetcode.com/problems/roman-to-integer/) | Easy | `Yes` | 20 | |
+[numbr_of_boomerangs]() | Easy | `Yes` | 1 | |
+[repeating_substring_pattern](https://leetcode.com/problems/repeated-substring-pattern/) | Easy | No | 10 | |
+[remove_duplicates_from_sorted_list](https://leetcode.com/problems/remove-duplicates-from-sorted-list/) | Easy | `Yes` | 5 | |
