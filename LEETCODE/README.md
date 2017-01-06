@@ -66,3 +66,4 @@ Problem     | Difficulty | Correct First Try | Time(min) 1  | Time(min) 2 | Time
 [balanced-binary-tree](https://leetcode.com/problems/balanced-binary-tree/) | Easy | `Yes` | 10 | |
 [arranging-coins](https://leetcode.com/problems/arranging-coins/) | Easy | `Yes` | 4 | |
 [isomorphic-strings](https://leetcode.com/problems/isomorphic-strings/) | Easy | No | 17 | |
+[minimum-depth-of-binary-tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/) | Easy | `Yes` | 10 | |
