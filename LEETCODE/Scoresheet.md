@@ -22,16 +22,16 @@ Problem     | Difficulty | Correct First Try | Time(min) 1  | Time(min) 2 | Time
 [numbr_of_boomerangs]() | Easy | `Yes` | 1 | |
 [repeating_substring_pattern](https://leetcode.com/problems/repeated-substring-pattern/) | Easy | No | 10 | |
 [remove_duplicates_from_sorted_list](https://leetcode.com/problems/remove-duplicates-from-sorted-list/) | Easy | `Yes` | 5 | |
-[count-and-say](https://leetcode.com/problems/count-and-say/) | Easy | `Yes` | 1 | 10 |
-[path-sum](https://leetcode.com/problems/path-sum/) | Easy | `Yes` | 1 | 10 |
-[bulls-and-cows](https://leetcode.com/problems/bulls-and-cows/) | Easy | `Yes` | 1 | 15 |
-[guess-number-higher-or-lower](https://leetcode.com/problems/guess-number-higher-or-lower/) | Easy | `Yes` | 1 | 3 |
-[find-all-anagrams-in-a-string](https://leetcode.com/problems/find-all-anagrams-in-a-string/) | Easy | `Yes` | 1 | 20 |
-[valid-sudoku](https://leetcode.com/problems/valid-sudoku/) | Easy | `Yes` | 1 | 15 |
-[palindrome-number](https://leetcode.com/problems/palindrome-number/) | Easy | No | 1 | 10 |
-[binary-tree-paths](https://leetcode.com/problems/binary-tree-paths/) | Easy | `Yes` | 1 | 6 |
-[factorial-trailing-zeroes](https://leetcode.com/problems/factorial-trailing-zeroes/) | Easy | `Yes` | 1 | 5 |
-[implement-queue-using-stacks](https://leetcode.com/problems/implement-queue-using-stacks/) | Easy | `Yes` | 1 | 6 |
-[pascals-triangle-ii](https://leetcode.com/problems/pascals-triangle-ii/) | Easy | `Yes` | 1 | 7|
-[remove-duplicates-from-sorted-array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/) | Easy | `Yes` | 1 | 10 |
-[linked-list-cycle](https://leetcode.com/problems/linked-list-cycle/) | Easy | `Yes` | 1 | 4 |
+[count-and-say](https://leetcode.com/problems/count-and-say/) | Easy | `Yes` | 10 |
+[path-sum](https://leetcode.com/problems/path-sum/) | Easy | `Yes` | 10 |
+[bulls-and-cows](https://leetcode.com/problems/bulls-and-cows/) | Easy | `Yes` | 15 |
+[guess-number-higher-or-lower](https://leetcode.com/problems/guess-number-higher-or-lower/) | Easy | `Yes` | 3 |
+[find-all-anagrams-in-a-string](https://leetcode.com/problems/find-all-anagrams-in-a-string/) | Easy | `Yes` | 20 |
+[valid-sudoku](https://leetcode.com/problems/valid-sudoku/) | Easy | `Yes` | 15 |
+[palindrome-number](https://leetcode.com/problems/palindrome-number/) | Easy | No | 10 |
+[binary-tree-paths](https://leetcode.com/problems/binary-tree-paths/) | Easy | `Yes` | 6 |
+[factorial-trailing-zeroes](https://leetcode.com/problems/factorial-trailing-zeroes/) | Easy | `Yes` | 5 |
+[implement-queue-using-stacks](https://leetcode.com/problems/implement-queue-using-stacks/) | Easy | `Yes` | 6 |
+[pascals-triangle-ii](https://leetcode.com/problems/pascals-triangle-ii/) | Easy | `Yes` | 7|
+[remove-duplicates-from-sorted-array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/) | Easy | `Yes` | 10 |
+[linked-list-cycle](https://leetcode.com/problems/linked-list-cycle/) | Easy | `Yes` | 4 |
