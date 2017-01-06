@@ -68,21 +68,21 @@ typedef long long ll;
  
 class Solution {
 public:
-    ListNode* deleteDuplicates(ListNode* head) {
-        ListNode* it = head;
-        while(it){
-            if(it->next && it->val == it->next->val){
-                ListNode* tmp = it->next;
-                it->next = it->next->next;
-                delete tmp;
-            }
-            else
-                it = it->next;
+    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+        if(!l1)
+            return l2;
+        if(!l2)
+            return l1;
+        if(l1->val < l2->val){
+            l1->next = mergeTwoLists(l1->next, l2);
+            return l1;
         }
-        return head;
+        else{
+            l2->next = mergeTwoLists(l1, l2->next);
+            return l2;
+        }
     }
 };
-
 
 int main(){
 

@@ -60,41 +60,42 @@ typedef pair<int, int> ii;
 typedef vector<ii> vii;
 typedef long long ll;
 
-  int numberOfBoomerangs(vector<pair<int, int> >& points) {
-      int ct = 0; 
-      for(int i=0; i<points.size(); ++i){
-          map<long,int> M;
-          for(int j=0; j<points.size(); ++j)
-              if(i != j){
-                  int dx = points[i].first - points[j].first;
-                  int dy = points[i].second - points[j].second;
-                  M[dx*dx+dy*dy]++;
-              }
-        
-            for(map<long,int>::iterator it=M.begin(); it!=M.end(); ++it)
-                if(it->second > 1)
-                    ct += it->second*(it->second-1);
-      }
-      return ct;
- }
-
+  struct TreeNode {
+      int val;
+      TreeNode *left;
+      TreeNode *right;
+      TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+  };
+ 
+class Solution {
+public:
+    vector<vector<int>> levelOrderBottom(TreeNode* root) {
+        vector<vector<int> > res;
+        if(!root)
+            return res;
+        queue<pair<TreeNode*,int> > Q;
+        Q.push(make_pair(root,0));
+        res.push_back(vector<int>());
+        while(!Q.empty()){
+            pair<TreeNode*,int> el = Q.front(); Q.pop();
+            TreeNode* v = el.first;
+            int d = el.second;
+            while(d >= res.size())
+                res.push_back(vector<int>());
+            res[d].push_back(v->val);
+            if(v->left)
+                Q.push(make_pair(v->left, d+1));
+            if(v->right)
+                Q.push(make_pair(v->right, d+1));
+        }
+        reverse(res.begin(), res.end());
+        return res;
+    }
+};
 
 int main(){
 
-	int t;
-	cin >> t;
-	while(t--){
-		int n;
-		cin >> n;
-		vector<pair<int,int> > v(n);
-		int i=0;
-		while(i<n){
-			int x,y;
-			cin >> v[i].first >> v[i].second;
-			i++;
-		}
-		cout << numberOfBoomerangs(v) << endl;
-	}
 
-	return 0;
+
+  return 0;
 }
