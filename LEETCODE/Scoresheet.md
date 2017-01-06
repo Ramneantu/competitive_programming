@@ -35,3 +35,13 @@ Problem     | Difficulty | Correct First Try | Time(min) 1  | Time(min) 2 | Time
 [pascals-triangle-ii](https://leetcode.com/problems/pascals-triangle-ii/) | Easy | `Yes` | 7|
 [remove-duplicates-from-sorted-array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/) | Easy | `Yes` | 10 |
 [linked-list-cycle](https://leetcode.com/problems/linked-list-cycle/) | Easy | `Yes` | 4 |
+[number-of-boomerangs](https://leetcode.com/problems/number-of-boomerangs/) | Easy | `Yes` | 20 | |
+[add-strings](https://leetcode.com/problems/add-strings/) | Easy | `Yes` | 5 | |
+[add-strings](https://leetcode.com/problems/add-strings/) | Easy | `Yes` | 4 | |
+[convert-a-number-to-hexadecimal](https://leetcode.com/problems/convert-a-number-to-hexadecimal/) | Easy | `Yes` | 15 | |
+[string-to-integer-atoi](https://leetcode.com/problems/string-to-integer-atoi/) | Easy | `Yes` | 15| |
+[repeated-substring-pattern](https://leetcode.com/problems/repeated-substring-pattern/) | Easy | `Yes` | 5 | |
+[power-of-three](https://leetcode.com/problems/power-of-three/) | Easy | `Yes` | 3 | |
+[power-of-two](https://leetcode.com/problems/power-of-two/) | Easy | `Yes` | 2 | |
+[happy-number](https://leetcode.com/problems/happy-number/) | Easy | `Yes` | 5 | |
+[remove-duplicates-from-sorted-list](https://leetcode.com/problems/remove-duplicates-from-sorted-list/) | Easy | `Yes` | 7 | |
