@@ -60,26 +60,42 @@ typedef pair<int, int> ii;
 typedef vector<ii> vii;
 typedef long long ll;
 
-string countAndSay(int n) {
-    if(n == 1)
-        return "1";
-    int i=1;
-    string s = "1";
-    while(i<=(n-1)){
-        string ss;
-        int j=0;
-        while(j<s.size()){
-            char c = s[j];
-            j++;
-            int ct=1;
-            while(j<s.size() && s[j] == c){j++; ct++;}
-            ss += to_string(ct) + c;
+class Queue {
+public:
+    stack<int> push_stack;
+    stack<int> front_stack;
+    
+    void pop_from_stack(stack<int>& from, stack<int>& to){
+        while(!from.empty()){
+            int e = from.top(); from.pop();
+            to.push(e);
         }
-        s = ss;
-        i++;
     }
-    return s;
-}
+    
+    // Push element x to the back of queue.
+    void push(int x) {
+        push_stack.push(x);
+    }
+
+    // Removes the element from in front of queue.
+    void pop(void) {
+        int e = peek();
+        front_stack.pop();
+    }
+
+    // Get the front element.
+    int peek(void) {
+        if(front_stack.empty()){
+            pop_from_stack(push_stack, front_stack);
+        }
+        return front_stack.top();
+    }
+
+    // Return whether the queue is empty.
+    bool empty(void) {
+        return push_stack.empty() && front_stack.empty();
+    }
+};
 
 int main(){
 

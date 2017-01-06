@@ -60,26 +60,62 @@ typedef pair<int, int> ii;
 typedef vector<ii> vii;
 typedef long long ll;
 
-string countAndSay(int n) {
-    if(n == 1)
-        return "1";
-    int i=1;
-    string s = "1";
-    while(i<=(n-1)){
-        string ss;
-        int j=0;
-        while(j<s.size()){
-            char c = s[j];
-            j++;
-            int ct=1;
-            while(j<s.size() && s[j] == c){j++; ct++;}
-            ss += to_string(ct) + c;
+class Solution {
+public:
+    bool isValidSudoku(vector<vector<char> >& board) {
+    	map<char,bool> M;
+    	
+    	// check rows
+    	for(int i=0; i<9; ++i){
+    		for(int j=0; j<9; ++j)
+    		if(board[i][j] != '.'){
+    			if(M.find(board[i][j]) != M.end())
+    				return false;
+    			else
+    				M[board[i][j]] = true;
+    		}
+    		M.clear();
         }
-        s = ss;
-        i++;
+    	
+    	// check columns
+    	for(int j=0;j<9; ++j){
+    		for(int i=0; i<9; ++i)
+    		if(board[i][j] != '.'){
+    			if(M.find(board[i][j]) != M.end())
+    				return false;
+    			else
+    				M[board[i][j]] = true;
+    		}
+    		M.clear();
+        }
+    
+    	// check 3x3 blocks
+    	int r = 0;
+    	int c = 0;
+    	for(int b=1; b<=9; ++b){
+            for(int i=0; i<3; ++i)
+                for(int j=0; j<3; ++j){
+                    int ii = r+i;
+                    int jj = c+j;
+            		if(board[ii][jj] != '.'){
+            			if(M.find(board[ii][jj]) != M.end())
+            				return false;
+            			else
+            				M[board[ii][jj]] = true;
+            		}
+                }
+            M.clear();
+            if(b%3 == 0){
+                c = 0;
+                r += 3;
+            }
+            else{
+                c += 3;
+            }
+    	}
+        return true;
     }
-    return s;
-}
+};
 
 int main(){
 

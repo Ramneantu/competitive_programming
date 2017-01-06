@@ -60,26 +60,20 @@ typedef pair<int, int> ii;
 typedef vector<ii> vii;
 typedef long long ll;
 
-string countAndSay(int n) {
-    if(n == 1)
-        return "1";
-    int i=1;
-    string s = "1";
-    while(i<=(n-1)){
-        string ss;
-        int j=0;
-        while(j<s.size()){
-            char c = s[j];
-            j++;
-            int ct=1;
-            while(j<s.size() && s[j] == c){j++; ct++;}
-            ss += to_string(ct) + c;
-        }
-        s = ss;
-        i++;
+class Solution {
+public:
+int removeDuplicates(vector<int>& nums) {
+    int p=!nums.empty()-1;
+    int pp=p+1;
+    while(pp<nums.size()){
+        if(nums[p] != nums[pp]){
+    	    nums[++p] = nums[pp];
+    	}
+        pp++;
     }
-    return s;
-}
+    return p+1;
+    }
+};
 
 int main(){
 

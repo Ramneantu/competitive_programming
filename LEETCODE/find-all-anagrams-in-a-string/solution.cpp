@@ -60,26 +60,53 @@ typedef pair<int, int> ii;
 typedef vector<ii> vii;
 typedef long long ll;
 
-string countAndSay(int n) {
-    if(n == 1)
-        return "1";
-    int i=1;
-    string s = "1";
-    while(i<=(n-1)){
-        string ss;
-        int j=0;
-        while(j<s.size()){
-            char c = s[j];
-            j++;
-            int ct=1;
-            while(j<s.size() && s[j] == c){j++; ct++;}
-            ss += to_string(ct) + c;
+
+class Solution {
+public:
+    vector<int> findAnagrams(string s, string p) {
+        map<char,int> pf;
+        map<char,int> cf;
+        
+        vector<int> res;
+        if(p.size() > s.size())
+        	return res;
+        if(p.size() == 0){
+            for(int i=0;i<=s.size(); ++i)
+                res.push_back(i);
+            return res;
         }
-        s = ss;
-        i++;
+
+        for(int i=0; i<p.size(); ++i){
+        	pf[p[i]]++;
+        	cf[s[i]]++;
+        }
+        
+        int i=0;
+        int dist = 0;
+        for(int i=0; i<26; ++i){
+            char c = char(97+i);
+            dist += abs(pf[c]-cf[c]);
+        }
+
+        while(i<=s.size()-p.size()){
+        	if(dist == 0)
+        		res.push_back(i);
+        	cf[s[i]]--;
+            if(cf[s[i]]-pf[s[i]] >= 0)
+                dist--;
+            else
+            	dist++;
+        	cf[s[i+p.size()]]++;
+        	if(cf[s[i+p.size()]] - pf[s[i+p.size()]] <= 0)
+        		dist--;
+        	else
+        		dist++;
+        	++i;
+        }
+        return res;
     }
-    return s;
-}
+};
+
 
 int main(){
 

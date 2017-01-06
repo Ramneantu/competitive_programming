@@ -60,26 +60,22 @@ typedef pair<int, int> ii;
 typedef vector<ii> vii;
 typedef long long ll;
 
-string countAndSay(int n) {
-    if(n == 1)
-        return "1";
-    int i=1;
-    string s = "1";
-    while(i<=(n-1)){
-        string ss;
-        int j=0;
-        while(j<s.size()){
-            char c = s[j];
-            j++;
-            int ct=1;
-            while(j<s.size() && s[j] == c){j++; ct++;}
-            ss += to_string(ct) + c;
+class Solution {
+public:
+    int trailingZeroes(int n) {
+        if(n < 5)
+            return 0;
+        if(n == 5)
+            return 1;
+        long factor = 5;
+        int nr_fives = 0;
+        while(n >= factor){
+            nr_fives += n/factor;
+            factor *= 5;
         }
-        s = ss;
-        i++;
+        return nr_fives;
     }
-    return s;
-}
+};
 
 int main(){
 

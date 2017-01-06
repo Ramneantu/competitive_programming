@@ -60,26 +60,33 @@ typedef pair<int, int> ii;
 typedef vector<ii> vii;
 typedef long long ll;
 
-string countAndSay(int n) {
-    if(n == 1)
-        return "1";
-    int i=1;
-    string s = "1";
-    while(i<=(n-1)){
-        string ss;
-        int j=0;
-        while(j<s.size()){
-            char c = s[j];
-            j++;
-            int ct=1;
-            while(j<s.size() && s[j] == c){j++; ct++;}
-            ss += to_string(ct) + c;
-        }
-        s = ss;
-        i++;
+class Solution {
+public:
+    string getHint(string secret, string guess) {
+        int A = 0, B = 0;
+        map<char,int> M;
+        for(int i=0; i<secret.size();++i)
+            if(secret[i] == guess[i])
+                A++;
+            else{
+                M[secret[i]]++;
+                M[guess[i]]--;
+                if(M.find(guess[i]) != M.end()){
+                    if(M[guess[i]] > 0){
+                        B++;
+                        M[guess[i]]--;
+                    }                    
+                }
+                if(M.find(guess[i]) != M.end()){
+                    if(M[guess[i]] < 0){
+                        B++;
+                        M[guess[i]]++;
+                    }                    
+                }
+            }
+        return to_string(A) + "A" + to_string(B) + "B";
     }
-    return s;
-}
+};
 
 int main(){
 

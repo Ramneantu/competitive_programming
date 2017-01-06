@@ -60,26 +60,34 @@ typedef pair<int, int> ii;
 typedef vector<ii> vii;
 typedef long long ll;
 
-string countAndSay(int n) {
-    if(n == 1)
-        return "1";
-    int i=1;
-    string s = "1";
-    while(i<=(n-1)){
-        string ss;
-        int j=0;
-        while(j<s.size()){
-            char c = s[j];
-            j++;
-            int ct=1;
-            while(j<s.size() && s[j] == c){j++; ct++;}
-            ss += to_string(ct) + c;
+
+  struct ListNode {
+      int val;
+      ListNode *next;
+      ListNode(int x) : val(x), next(NULL) {}
+  };
+ 
+
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        if(!head)
+            return false;
+        ListNode* p = head;
+        ListNode* pp = head->next;
+        
+        while(p && pp){
+            if(p == pp)
+                return true;
+            p = p->next;
+            if(pp->next)
+                pp = pp->next->next;
+            else
+                return false;
         }
-        s = ss;
-        i++;
+        return false;
     }
-    return s;
-}
+};
 
 int main(){
 

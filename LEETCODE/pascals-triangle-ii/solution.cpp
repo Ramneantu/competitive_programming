@@ -60,26 +60,22 @@ typedef pair<int, int> ii;
 typedef vector<ii> vii;
 typedef long long ll;
 
-string countAndSay(int n) {
-    if(n == 1)
-        return "1";
-    int i=1;
-    string s = "1";
-    while(i<=(n-1)){
-        string ss;
-        int j=0;
-        while(j<s.size()){
-            char c = s[j];
-            j++;
-            int ct=1;
-            while(j<s.size() && s[j] == c){j++; ct++;}
-            ss += to_string(ct) + c;
+class Solution {
+public:
+    vector<int> getRow(int rowIndex) {
+        vector<vector<int> > comb(2,vector<int>());
+        int i=0;
+        int ii=0;
+        while(i <= rowIndex){
+            ii = i&1;
+            comb[ii].resize(i+1,1);
+            for(int j=1;j<i;++j)
+            	comb[ii][j] = comb[1-ii][j-1]+comb[1-ii][j];
+            i++;
         }
-        s = ss;
-        i++;
+        return comb[1-(i&1)];
     }
-    return s;
-}
+};
 
 int main(){
 

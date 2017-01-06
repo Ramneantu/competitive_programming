@@ -60,26 +60,24 @@ typedef pair<int, int> ii;
 typedef vector<ii> vii;
 typedef long long ll;
 
-string countAndSay(int n) {
-    if(n == 1)
-        return "1";
-    int i=1;
-    string s = "1";
-    while(i<=(n-1)){
-        string ss;
-        int j=0;
-        while(j<s.size()){
-            char c = s[j];
-            j++;
-            int ct=1;
-            while(j<s.size() && s[j] == c){j++; ct++;}
-            ss += to_string(ct) + c;
-        }
-        s = ss;
-        i++;
+class Solution {
+public:
+    bool is_pal(int x, int& y){
+    	if(x == 0)
+    		return true;
+    	if(is_pal(x/10,y) & (x%10 == y%10)){
+    	    y /= 10;
+    	    return true;
+    	}
+    	return false;
     }
-    return s;
-}
+
+    bool isPalindrome(int x) {
+        if(x < 0)
+            return false;
+        return is_pal(x,x);
+    }
+};
 
 int main(){
 

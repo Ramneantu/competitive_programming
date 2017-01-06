@@ -60,26 +60,31 @@ typedef pair<int, int> ii;
 typedef vector<ii> vii;
 typedef long long ll;
 
-string countAndSay(int n) {
-    if(n == 1)
-        return "1";
-    int i=1;
-    string s = "1";
-    while(i<=(n-1)){
-        string ss;
-        int j=0;
-        while(j<s.size()){
-            char c = s[j];
-            j++;
-            int ct=1;
-            while(j<s.size() && s[j] == c){j++; ct++;}
-            ss += to_string(ct) + c;
-        }
-        s = ss;
-        i++;
+struct TreeNode {
+     int val;
+     TreeNode *left;
+     TreeNode *right;
+     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+
+class Solution {
+public:
+
+    bool dfs(TreeNode* root, int target, int cur){
+        if(!root)
+            return false;
+        if(!root->left && !root->right && cur+root->val == target)
+            return true;
+        
+        return dfs(root->left, target, cur+root->val) || dfs(root->right, target, cur+root->val);
     }
-    return s;
-}
+
+    bool hasPathSum(TreeNode* root, int sum) {
+        if(!root)
+            return false;
+        return dfs(root, sum, 0);
+    }
+};
 
 int main(){
 

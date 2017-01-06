@@ -60,26 +60,34 @@ typedef pair<int, int> ii;
 typedef vector<ii> vii;
 typedef long long ll;
 
-string countAndSay(int n) {
-    if(n == 1)
-        return "1";
-    int i=1;
-    string s = "1";
-    while(i<=(n-1)){
-        string ss;
-        int j=0;
-        while(j<s.size()){
-            char c = s[j];
-            j++;
-            int ct=1;
-            while(j<s.size() && s[j] == c){j++; ct++;}
-            ss += to_string(ct) + c;
+
+// Forward declaration of guess API.
+// @param num, your guess
+// @return -1 if my number is lower, 1 if my number is higher, otherwise return 0
+int guess(int num);
+
+class Solution {
+public:
+    int guessNumber(int n) {
+        long l = 1;
+        long r = n;
+        while(l<r){
+            long m = (l+r)/2;
+            int g = guess(m);
+            if(g==0){
+                return m;
+            }
+            else if(g<0){
+                r=m-1;
+            }
+            else if(g>0){
+                l=m+1;
+            }
         }
-        s = ss;
-        i++;
+        return l;
     }
-    return s;
-}
+};
+
 
 int main(){
 
