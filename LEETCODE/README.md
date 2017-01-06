@@ -65,3 +65,4 @@ Problem     | Difficulty | Correct First Try | Time(min) 1  | Time(min) 2 | Time
 [pascals-triangle](https://leetcode.com/problems/pascals-triangle/) | Easy | `Yes` | 10 | |
 [balanced-binary-tree](https://leetcode.com/problems/balanced-binary-tree/) | Easy | `Yes` | 10 | |
 [arranging-coins](https://leetcode.com/problems/arranging-coins/) | Easy | `Yes` | 4 | |
+[isomorphic-strings](https://leetcode.com/problems/isomorphic-strings/) | Easy | No | 17 | |
