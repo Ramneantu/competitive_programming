@@ -67,3 +67,5 @@ Problem     | Difficulty | Correct First Try | Time | Tag |
 [arranging-coins](https://leetcode.com/problems/arranging-coins/) | Easy | `Yes` | 4 | |
 [isomorphic-strings](https://leetcode.com/problems/isomorphic-strings/) | Easy | No | 17 | |
 [minimum-depth-of-binary-tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/) | Easy | `Yes` | 10 | |
+[remove-nth-node-from-end-of-list](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) | Easy | `Yes` | 8 | two-pointers |
+[valid-parentheses](https://leetcode.com/problems/valid-parentheses/) | Easy | `Yes` | 8 | stack |
