@@ -56,11 +56,35 @@ int main(){
   int t;
   cin >> t;
   rep(_t,1,t){
+		int m, n; cin >> m >> n;
+		vector<vector<double> > V(n,vector<double>(4,0));
+    rep(i,0,n-1){
+    	double l,s; cin >> l >> s;
+      V[i][0] = s*1.0 / l;
+      V[i][1] = s;
+      V[i][2] = l;
+      V[i][3] = i;
+    }
+    sort(all(V));
 
-    // your magic
+		int cur_m = 0;
+		int i=V.size()-1;
+    vector<int> R;
+    while(i>=0){
+      if(V[i][2] + cur_m > m){
+        i--;
+      }
+      else{
+        cur_m += V[i][2];
+        R.pb(V[i][3]+1);
+        if(cur_m >= m)
+          break;
+      }
+    }
 
-    cout << "Case #" << _t << ": ";
-    // your output
+    printf("Case #%d: ", _t);
+    rep(i,0,R.size()-1)
+      cout << R[i] << " ";
     cout << "\n";
   }
 

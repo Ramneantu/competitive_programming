@@ -37,8 +37,7 @@
 #define vout(V,a,b,msg) cout << msg << ": "; rep(i,a,b)  cout << V[i] << " "; cout << "\n";
 #define fst first
 #define snd second
-#define debug 0
-#define DBG(code) if(debug){    \
+#define DBG(code) if(0){    \
                     do{         \
                     code        \
                     }while(0);  \
@@ -51,17 +50,62 @@ typedef vector<ii> vii;
 typedef long long ll;
 
 
+bool cmp(ii a, ii b){
+  if(a.fst == b.fst){
+    return (a.snd > b.snd);
+  }
+  return (a.fst < b.fst);
+}
+
 int main(){
 
   int t;
   cin >> t;
   rep(_t,1,t){
+    int l,n,r; cin >> l >> n >> r;
+    vector<ii> Ls(n); // .first = d, .second  =p
+    rep(i,0,n-1){
+      int centre; cin >> centre;
+			Ls[i].fst = centre-r;
+      Ls[i].snd = centre+r;
+    }
+    sort(all(Ls));
 
-    // your magic
-
-    cout << "Case #" << _t << ": ";
-    // your output
-    cout << "\n";
+    bool possible = true;
+    int last = 0;
+    int i=0;
+    int max_right = -1;
+    int ct = 0;
+    while(i<Ls.size()){
+      if(Ls[i].fst <= last){
+        max_right = max(max_right, Ls[i].snd);
+        if(max_right >= l)
+          break;
+        i++;
+      }
+      else{
+        if(max_right == -1){
+          possible = false;
+          break;
+        }
+        ct++;
+        DBG(cout << Ls[i].fst << " -- " << Ls[i].snd << "\n";)
+        last = max_right;
+        max_right = -1;
+      }
+    }
+    if(max_right >= l){
+      if(i < Ls.size())
+    	 ct++;
+      DBG(cout << Ls[i].fst << " -- " << Ls[i].snd << "\n";)
+    }
+    else
+      possible = false;
+    printf("Case #%d: ", _t);
+    if(possible)
+      cout << ct << "\n";
+    else
+      cout << "impossible\n";
   }
 
   return 0;
