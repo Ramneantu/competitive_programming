@@ -69,3 +69,10 @@ Problem     | Difficulty | Correct First Try | Time | Tag |
 [minimum-depth-of-binary-tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/) | Easy | `Yes` | 10 | |
 [remove-nth-node-from-end-of-list](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) | Easy | `Yes` | 8 | two-pointers |
 [valid-parentheses](https://leetcode.com/problems/valid-parentheses/) | Easy | `Yes` | 8 | stack |
+[word-pattern](https://leetcode.com/problems/word-pattern/) | Easy | `Yes` | 8 | hashmap |
+[rectangle-area](https://leetcode.com/problems/rectangle-area/) | Easy | `Yes` | 15 | ad-hoc, geometry |
+[palindrome-linked-list](https://leetcode.com/problems/palindrome-linked-list/) | Easy | `Yes` | 7 | two-pointers, recursion |
+[contains-duplicate-ii](https://leetcode.com/problems/contains-duplicate-ii/) | Easy | No | 6 | hashmap |
+[merge-sorted-array](https://leetcode.com/problems/merge-sorted-array/) | Easy | `Yes` | 10 | two-pointers |
+[implement-stack-using-queues](https://leetcode.com/problems/implement-stack-using-queues/) | Easy | No | 15 | queue |
+[intersection-of-two-arrays](https://leetcode.com/problems/intersection-of-two-arrays/) | Easy | `Yes` | 10 | hashmap |
