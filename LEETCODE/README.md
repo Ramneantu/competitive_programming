@@ -76,3 +76,5 @@ Problem     | Difficulty | Correct First Try | Time | Tag |
 [merge-sorted-array](https://leetcode.com/problems/merge-sorted-array/) | Easy | `Yes` | 10 | two-pointers |
 [implement-stack-using-queues](https://leetcode.com/problems/implement-stack-using-queues/) | Easy | No | 15 | queue |
 [intersection-of-two-arrays](https://leetcode.com/problems/intersection-of-two-arrays/) | Easy | `Yes` | 10 | hashmap |
+[remove-linked-list-elements](https://leetcode.com/problems/remove-linked-list-elements/) | Easy | No | 18 | pointers, linked-list |
+[longest-common-prefix](https://leetcode.com/problems/longest-common-prefix/) | Easy | `Yes` | 6 | string |
