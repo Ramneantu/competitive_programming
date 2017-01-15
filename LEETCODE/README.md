@@ -78,3 +78,5 @@ Problem     | Difficulty | Correct First Try | Time | Tag |
 [intersection-of-two-arrays](https://leetcode.com/problems/intersection-of-two-arrays/) | Easy | `Yes` | 10 | hashmap |
 [remove-linked-list-elements](https://leetcode.com/problems/remove-linked-list-elements/) | Easy | No | 18 | pointers, linked-list |
 [longest-common-prefix](https://leetcode.com/problems/longest-common-prefix/) | Easy | `Yes` | 6 | string |
+[add-binary](https://leetcode.com/problems/add-binary/) | Easy | No | 15 | binary, string |
+[rotate-function](https://leetcode.com/problems/rotate-function/) | Easy | `No | 16 | math |
