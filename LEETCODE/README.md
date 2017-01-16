@@ -80,3 +80,5 @@ Problem     | Difficulty | Correct First Try | Time | Tag |
 [longest-common-prefix](https://leetcode.com/problems/longest-common-prefix/) | Easy | `Yes` | 6 | string |
 [add-binary](https://leetcode.com/problems/add-binary/) | Easy | No | 15 | binary, string |
 [rotate-function](https://leetcode.com/problems/rotate-function/) | Easy | `No | 16 | math |
+[heaters](https://leetcode.com/problems/heaters/) | Easy | No | 20 | binary-search |
+[intersection-of-two-linked-lists](https://leetcode.com/problems/intersection-of-two-linked-lists/) | Easy | No | 15 | two-pointers |
