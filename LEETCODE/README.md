@@ -82,3 +82,6 @@ Problem     | Difficulty | Correct First Try | Time | Tag |
 [rotate-function](https://leetcode.com/problems/rotate-function/) | Easy | `No | 16 | math |
 [heaters](https://leetcode.com/problems/heaters/) | Easy | No | 20 | binary-search |
 [intersection-of-two-linked-lists](https://leetcode.com/problems/intersection-of-two-linked-lists/) | Easy | No | 15 | two-pointers |
+[reverse-bits](https://leetcode.com/problems/reverse-bits/) | Easy | No | 7 | bit-manipulation |
+[implement-strstr](https://leetcode.com/problems/implement-strstr/) | Easy | No | 8 | string |
+[third-maximum-number](https://leetcode.com/problems/third-maximum-number/) | Easy | No | 6 | |
