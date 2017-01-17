@@ -88,3 +88,4 @@ Problem     | Difficulty | Correct First Try | Time | Tag |
 [min-stack](https://leetcode.com/problems/min-stack/) | Easy | `Yes` | 8 |stack |
 [range-sum-query-immutable](https://leetcode.com/problems/range-sum-query-immutable/) | Easy | `Yes` | 10 | partial-sums |
 [count-primes](https://leetcode.com/problems/count-primes/) | Easy | `Yes` | 5 | sieve |
+[valid-palindrome](https://leetcode.com/problems/valid-palindrome/) | Easy | `Yes` | 8 | string |
