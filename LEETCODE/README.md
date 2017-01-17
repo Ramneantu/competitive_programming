@@ -85,3 +85,6 @@ Problem     | Difficulty | Correct First Try | Time | Tag |
 [reverse-bits](https://leetcode.com/problems/reverse-bits/) | Easy | No | 7 | bit-manipulation |
 [implement-strstr](https://leetcode.com/problems/implement-strstr/) | Easy | No | 8 | string |
 [third-maximum-number](https://leetcode.com/problems/third-maximum-number/) | Easy | No | 6 | |
+[min-stack](https://leetcode.com/problems/min-stack/) | Easy | `Yes` | 8 |stack |
+[range-sum-query-immutable](https://leetcode.com/problems/range-sum-query-immutable/) | Easy | `Yes` | 10 | partial-sums |
+[count-primes](https://leetcode.com/problems/count-primes/) | Easy | `Yes` | 5 | sieve |
