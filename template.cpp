@@ -6,10 +6,8 @@
 #include <deque>
 #include <queue>
 #include <stack>
-#include <string>
 #include <bitset>
 #include <cstdio>
-#include <limits>
 #include <vector>
 #include <climits>
 #include <cstring>
@@ -34,14 +32,12 @@
 #define sqr(x) ((x)*(x))
 #define sz(a) int((a).size())
 #define mod(a,n) ((a) < 0 ? ((n)+(a)) : ((a)%(n)))
-#define mout(M,n,m) rep(i,0,(n)-1){ rep(j,0,(m)-1) cout << (M)[i][j] << " ";  cout << "\n"; }
-
 using namespace std;
 
-typedef vector<int> vi;
-typedef pair<int, int> ii;
-typedef vector<ii> vii;
-typedef long long ll;
+typedef long long T;
+typedef pair<T,T> TT;
+typedef vector<T> VT;
+typedef vector<TT> VTT;
 
 int main(){
 
