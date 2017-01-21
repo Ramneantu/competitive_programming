@@ -56,11 +56,54 @@ int main(){
   int t;
   cin >> t;
   rep(_t,1,t){
+    int n,c; cin >> n >> c;
+    vector<int> coins(n);
+    rep(i,0,n-1)
+      cin >> coins[i];
 
-    // your magic
+    vector<long> dp(c+1,0);
+    vector<long> prev(c+1,-1);
+    dp[0] = 0;
+    rep(i,1,c){
+      long mi = INT_MAX;
+      int choice = -1;
+      rep(j,0,sz(coins)-1){
+        if(coins[j]<=i && dp[i-coins[j]]<mi){
+          mi = dp[i-coins[j]];
+          choice = j;
+        }
+      }
+      dp[i] = mi+1;
+      prev[i] = choice;
+    }
 
-    cout << "Case #" << _t << ": ";
-    // your output
+    DBG(
+      cout << "dp: ";
+      rep(i,0,sz(dp)-1)
+        cout << dp[i] << " ";
+      cout << "\n";
+      cout << "prev: ";
+      rep(i,0,sz(prev)-1)
+        cout << prev[i] << " ";
+      cout << "\n";
+    )
+
+    printf("Case #%d: ", _t);
+    //recover
+    if(dp[c] >= INT_MAX){
+      rep(i,0,n-1)
+        cout << 0 << " ";
+    }
+    else{
+      vector<int> H(n,0);
+      int i = c;
+      while(i>0){
+        H[prev[i]]++;
+        i -= coins[prev[i]];
+      }
+      rep(i,0,sz(H)-1)
+        cout << H[i] << " ";
+    }
     cout << "\n";
   }
 

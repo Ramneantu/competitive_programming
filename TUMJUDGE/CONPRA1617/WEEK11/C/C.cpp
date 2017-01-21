@@ -50,18 +50,63 @@ typedef pair<int, int> ii;
 typedef vector<ii> vii;
 typedef long long ll;
 
+inline bool cmp(ii a, ii b){
+  if(a.fst == b.fst)
+    return a.snd > b.snd;
+  return a.fst < b.fst;
+}
+
+inline bool cmp2(ii a, ii b){
+  if(a.snd == b.snd)
+    return a.fst < b.fst;
+  return a.snd > b.snd;
+}
+
+int LIS(vector<ii>& F){
+  int res = 0;
+  vector<int> dp(sz(F),0);
+  dp[0] = 1;
+  rep(i,1,sz(F)-1){
+    int maxi = 0;
+    rep(j,0,i-1){
+      //printf("%d,%d %d,%d\n", F[j].fst, F[j].snd, F[i].fst, F[i].snd);
+      if(F[j].fst <= F[i].fst && F[j].snd > F[i].snd)
+        maxi = max(maxi, dp[j]);
+    }
+    dp[i] = 1+maxi;
+  }
+  rep(i,0,sz(F)-1)
+    res = max(res, dp[i]);
+  return res;
+}
 
 int main(){
 
   int t;
   cin >> t;
   rep(_t,1,t){
+    int n; cin >> n;
+    vector<ii> F(n);
+    rep(i,0,n-1)
+      cin >> F[i].fst >> F[i].snd;
 
-    // your magic
+    sort(F.begin(), F.end(), cmp);
+    int res = LIS(F);
 
-    cout << "Case #" << _t << ": ";
-    // your output
-    cout << "\n";
+    DBG(
+      rep(i,0,sz(F)-1)
+        cout << F[i].fst << " " << F[i].snd << endl;
+      cout << "\n";
+    )
+
+    /*
+    sort(F.begin(), F.end(), cmp2);
+    DBG(rep(i,0,sz(F)-1)
+      cout << F[i].fst << " " << F[i].snd << endl;)
+    res = max(res, LIS(F));
+    */
+
+    printf("Case #%d: %d\n", _t, res);
   }
 
   return 0;
