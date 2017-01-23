@@ -82,30 +82,18 @@ public:
     ListNode* removeElements(ListNode* head, int val) {
         if(!head)
             return NULL;
-        while(head && head->val == val){
-            ListNode* tmp = head->next;
-            delete(head);
-            head = tmp;
-        }
-        ListNode* p = head;
-        while(true){
-            while(p && p->next && p->next->val != val)
-                p = p->next;
-            if(!p)
-                break;
-            if(!p->next)
-                break;
-            if(p->next->val == val){
-                ListNode* tmp = p->next->next;
-                delete(p->next);
-                p->next = tmp;
-            }
+        if(head->val == val)
+            return removeElements(head->next, val);
+        if(head->next){
+            if(head->next->val == val)
+                head->next = removeElements(head->next->next, val);
             else
-                break;
+                ListNode* node = removeElements(head->next, val);
         }
         return head;
     }
 };
+
 int main(){
 
 
