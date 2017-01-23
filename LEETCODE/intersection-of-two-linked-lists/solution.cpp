@@ -75,54 +75,30 @@ typedef pair<int, int> ii;
 typedef vector<ii> vii;
 typedef long long ll;
 
+
 class Solution {
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-        if(!headA||!headB)
+        ListNode* a = headA;
+        ListNode* b = headB;
+        if(!a || !b)
             return NULL;
-        ListNode* pa=headA;
-        ListNode* pb=headB;
-        
-        while(pa->next) pa=pa->next;
-        bool intersection=false;
-        while(pb){
-            if(pb==pa){
-                intersection=true;
-                break;
-            }
-            pb=pb->next;
+        while(a && b && a != b){
+            a = a->next;
+            b = b->next;
+            
+            if(a == b)
+                return a;
+
+            if(!a)
+                a = headB;
+            if(!b)
+                b = headA;
         }
-        if(!intersection)
-            return NULL;
-        pa=headA;
-        pb=headB;
-        while(pa&&pb){
-            if(pa==pb)
-                return pa;
-            pa=pa->next;
-            pb=pb->next;
-        }
-        if(pa)
-            pb=headA;
-        else
-            pa=headB;
-        while(pa&&pb){
-            if(pa==pb)
-                return pa;
-            pa=pa->next;
-            pb=pb->next;
-        }
-        if(!pa) {pa=pb; pb=headB;}
-        else    {pb=pa; pa=headA;}
-        while(pa&&pb){
-            if(pa==pb)
-                return pa;
-            pa=pa->next;
-            pb=pb->next;
-        }
-        return NULL;
+        return (a ? a : b);
     }
 };
+
 int main(){
 
   return 0;
