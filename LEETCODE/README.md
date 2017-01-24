@@ -90,3 +90,4 @@ Problem     | Difficulty | Correct First Try | Time | Tag |
 [count-primes](https://leetcode.com/problems/count-primes/) | Easy | `Yes` | 5 | sieve |
 [valid-palindrome](https://leetcode.com/problems/valid-palindrome/) | Easy | `Yes` | 8 | string |
 [first-bad-version](https://leetcode.com/problems/first-bad-version/) | Easy | `Yes` | 10 | binary-search |
+[excel-sheet-column-title](https://leetcode.com/problems/excel-sheet-column-title/) | Easy | No | 20 | math |
