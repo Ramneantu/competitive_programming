@@ -91,3 +91,6 @@ Problem     | Difficulty | Correct First Try | Time | Tag |
 [valid-palindrome](https://leetcode.com/problems/valid-palindrome/) | Easy | `Yes` | 8 | string |
 [first-bad-version](https://leetcode.com/problems/first-bad-version/) | Easy | `Yes` | 10 | binary-search |
 [excel-sheet-column-title](https://leetcode.com/problems/excel-sheet-column-title/) | Easy | No | 20 | math |
+[number-complement](https://leetcode.com/problems/number-complement/) | Easy | `Yes` | 7 | bit-manipulation |
+[max-consecutive-ones](https://leetcode.com/problems/max-consecutive-ones/) | Easy | `Yes` | 4 | ad-hoc |
+[construct-the-rectangle](https://leetcode.com/problems/construct-the-rectangle/) | Easy | `Yes` | 10 | two-pointers,math |
