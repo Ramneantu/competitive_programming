@@ -50,18 +50,48 @@ typedef pair<int, int> ii;
 typedef vector<ii> vii;
 typedef long long ll;
 
+int ct;
+
+class Trie{
+private:
+  int cnt;
+  map<char,Trie> children;
+public:
+  Trie(){ cnt = 0; }
+  void add(char *w){
+    if(*w == '\0'){
+      cnt++;
+      if(children.size() > 0){
+        ct+=cnt;
+        cnt=0;
+      }
+    }
+    else{
+      if(children.find(*w) == children.end()){
+          children[*w] = Trie();
+      }
+      if(cnt > 0){
+        ct+=cnt;
+        cnt=0;
+      }
+      children[*w].add(w+1);
+    }
+  }
+};
 
 int main(){
 
   int t;
   cin >> t;
   rep(_t,1,t){
-
-    // your magic
-
-    cout << "Case #" << _t << ": ";
-    // your output
-    cout << "\n";
+    int n; cin>>n;
+    Trie trie = Trie();
+    ct = 0;
+    rep(i,0,n-1){
+      char name[501]; cin>>name;
+      trie.add(name);
+    }
+    printf("Case #%d: %d\n", _t, ct);
   }
 
   return 0;
