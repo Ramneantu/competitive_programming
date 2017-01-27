@@ -1,4 +1,5 @@
 #include <map>
+#include <cassert>
 #include <set>
 #include <list>
 #include <cmath>
@@ -22,47 +23,98 @@
 #include <unordered_map>
 #include <bitset>
 #include <utility>
-
-#define rep(i,a,b) for(int i=int(a); i<=int(b); ++i)
-#define rev(i,b,a) for(int i=int(b); i>=int(a); --i)
-#define rec(i,a,b,c) for(int i=int(a); i<=int(b); i+=int(c))
-#define recv(i,a,b,c) for(int i=int(a); i>=int(b); i-=int(c))
-#define mp(x,y) make_pair((x),(y))
-#define pb(x) push_back(x)
-#define all(c) c.begin(), c.end()
-#define tr(container, it) for(auto it=(container).begin(); it != (container).end(); ++it)
-#define sqr(x) ((x)*(x))
-#define sz(a) int((a).size())
-#define mout(M,n,m) rep(i,0,(n)-1){ rep(j,0,(m)-1) cout << (M)[i][j] << " ";  cout << "\n"; }
-#define vout(V,a,b,msg) cout << msg << ": "; rep(i,a,b)  cout << V[i] << " "; cout << "\n";
-#define fst first
-#define snd second
-#define debug 0
-#define DBG(code) if(debug){    \
-                    do{         \
-                    code        \
-                    }while(0);  \
-                  }
 using namespace std;
+#define DBG 0
 
-typedef vector<int> vi;
-typedef pair<int, int> ii;
-typedef vector<ii> vii;
-typedef long long ll;
-
+typedef pair<int,int> ii;
 
 int main(){
-
   int t;
   cin >> t;
-  rep(_t,1,t){
+  for(int _t=1; _t<=t; ++_t){
+    // read input
+    int n,m,k,l; cin>>n>>m>>k>>l;
+    vector<vector<ii> >G(n,vector<ii>());
+    vector<int> crooms(n,INT_MAX);
+    for(int _m=0; _m<m; ++_m){
+      int a,b,lvl; cin>>a>>b>>lvl; a--; b--;
+      G[a].push_back(ii(b,lvl));
+      G[b].push_back(ii(a,lvl));
+    }
+    for(int _k=0; _k<k; ++_k){
+      int a,d; cin>>a>>d; a--;
+      crooms[a] = d;
+    }
 
-    // your magic
 
-    cout << "Case #" << _t << ": ";
-    // your output
-    cout << "\n";
+    #if DBG
+      cout << "control rooms: ";
+      for(int i=0; i<crooms.size(); ++i)
+        cout << crooms[i] << " ";
+      cout << endl << "G:\n";
+      for(int i=0; i<G.size(); ++i){
+        cout << i << ": ";
+        for(int j=0; j<G[i].size(); ++j)
+          printf("%d(lvl: %d) ", G[i][j].first, G[i][j].second);
+        cout << endl;
+      }
+    #endif
+
+
+
+    queue<int> Q;
+    Q.push(0);
+    vector<bool> visited(n,false);
+    visited[0] = true;
+		int minimum_drain_level = INT_MAX;
+    priority_queue<ii,vector<ii>, less<ii> > Pedges; // (lvl, nnode)
+
+    int visited_nodes = 1;
+    while(visited_nodes < n){
+      while(!Q.empty()){
+        int v = Q.front(); Q.pop();
+        if(crooms[v] != INT_MAX){
+          minimum_drain_level = min(minimum_drain_level, crooms[v]);
+        }
+
+        for(int i=0; i<G[v].size(); ++i){
+          int u = G[v][i].first;
+          int lvl = G[v][i].second;
+          if(!visited[u]){
+            if(lvl >= l){
+              visited_nodes++;
+              visited[u] = true;
+              Q.push(u);
+            }
+            else{
+             Pedges.push(ii(lvl, u));
+            }
+          }
+        }
+      }
+      if(visited_nodes < n){
+        ii e = Pedges.top(); Pedges.pop();
+        int lvl = e.first;
+        int v = e.second;
+        if(minimum_drain_level > lvl)
+          break;
+        l = lvl;
+        Q.push(v);
+        if(!visited[v])
+          visited_nodes++;
+        visited[v] = true;
+      }
+      else
+        break;
+    }
+
+    printf("Case #%d: ", _t);
+    if(visited_nodes < n)
+      cout<<"impossible\n";
+  	else
+      cout << l << endl;
+
   }
 
-  return 0;
+    return 0;
 }
