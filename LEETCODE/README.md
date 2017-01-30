@@ -94,3 +94,8 @@ Problem     | Difficulty | Correct First Try | Time | Tag |
 [number-complement](https://leetcode.com/problems/number-complement/) | Easy | `Yes` | 7 | bit-manipulation |
 [max-consecutive-ones](https://leetcode.com/problems/max-consecutive-ones/) | Easy | `Yes` | 4 | ad-hoc |
 [construct-the-rectangle](https://leetcode.com/problems/construct-the-rectangle/) | Easy | `Yes` | 10 | two-pointers,math |
+[nested-list-weight-sum](https://leetcode.com/problems/nested-list-weight-sum/) | Easy | `Yes` | 5 | recursion |
+[logger-rate-limiter](https://leetcode.com/problems/logger-rate-limiter/) | Easy | `Yes` | 5 | hash |
+[moving-average-from-data-stream](https://leetcode.com/problems/moving-average-from-data-stream/) | Easy | `Yes` | 5 | queue, deque |
+[palindrome-permutation](https://leetcode.com/problems/palindrome-permutation/) | Easy | `Yes` | 5 | hash |
+[flip-game](https://leetcode.com/problems/flip-game/) | Easy | `Yes` | 7 | strings |
