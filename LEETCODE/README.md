@@ -99,3 +99,8 @@ Problem     | Difficulty | Correct First Try | Time | Tag |
 [moving-average-from-data-stream](https://leetcode.com/problems/moving-average-from-data-stream/) | Easy | `Yes` | 5 | queue, deque |
 [palindrome-permutation](https://leetcode.com/problems/palindrome-permutation/) | Easy | `Yes` | 5 | hash |
 [flip-game](https://leetcode.com/problems/flip-game/) | Easy | `Yes` | 7 | strings |
+[thai-yellow-coconut-curry-mango](http://minimalistbaker.com/thai-yellow-coconut-curry-mango/) | Easy | `Yes` | 5 | two-pointers |
+[best-time-to-buy-and-sell-stock-ii](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/) | Easy | No | 15 | greedy |
+[missing-number](https://leetcode.com/problems/missing-number/) | Easy | `Yes` | 5 | math |
+[strobogrammatic-number](https://leetcode.com/problems/strobogrammatic-number/) | Easy | Yes | 7 | ad-hoc |
+[paint-fence](https://leetcode.com/problems/paint-fence/) | Easy | No | 15 | dynamic programming |
