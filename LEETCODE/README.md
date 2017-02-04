@@ -104,3 +104,10 @@ Problem     | Difficulty | Correct First Try | Time | Tag |
 [missing-number](https://leetcode.com/problems/missing-number/) | Easy | `Yes` | 5 | math |
 [strobogrammatic-number](https://leetcode.com/problems/strobogrammatic-number/) | Easy | Yes | 7 | ad-hoc |
 [paint-fence](https://leetcode.com/problems/paint-fence/) | Easy | No | 15 | dynamic programming |
+[nth-digit](https://leetcode.com/problems/nth-digit/) | Easy | No | 15 | math |
+[closest-binary-search-tree-value](https://leetcode.com/problems/closest-binary-search-tree-value/) | Easy | `Yes` | 4 | inorder |
+[valid-word-square](https://leetcode.com/problems/valid-word-square/) | Easy | No | 20 | strings |
+[?tab=Descriptio](https://leetcode.com/problems/valid-word-abbreviation/?tab=Description) | Easy | No | 10 | strings |
+[license-key-formatting](https://leetcode.com/problems/license-key-formatting/) | Easy | `Yes` | 8 | string |
+[unique-word-abbreviation](https://leetcode.com/problems/unique-word-abbreviation/) | Easy | No | 15 | design, hashmap |
+[kth-smallest-element-in-a-sorted-matrix](https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/) | Easy | `Yes` | 10 | heap |
