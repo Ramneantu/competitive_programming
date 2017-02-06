@@ -92,25 +92,25 @@ Problem     | Difficulty | Correct First Try | Time | Tag |
  [first-bad-version](https://leetcode.com/problems/first-bad-version/) | Easy | `Yes` | 10 | binary-search |		
  [excel-sheet-column-title](https://leetcode.com/problems/excel-sheet-column-title/) | Easy | No | 20 | math |		
  [number-complement](https://leetcode.com/problems/number-complement/) | Easy | `Yes` | 7 | bit-manipulation |		
- -[max-consecutive-ones](https://leetcode.com/problems/max-consecutive-ones/) | Easy | `Yes` | 4 | ad-hoc |		
- -[construct-the-rectangle](https://leetcode.com/problems/construct-the-rectangle/) | Easy | `Yes` | 10 | two-pointers,math |		
- -[nested-list-weight-sum](https://leetcode.com/problems/nested-list-weight-sum/) | Easy | `Yes` | 5 | recursion |		
- -[logger-rate-limiter](https://leetcode.com/problems/logger-rate-limiter/) | Easy | `Yes` | 5 | hash |		
- -[moving-average-from-data-stream](https://leetcode.com/problems/moving-average-from-data-stream/) | Easy | `Yes` | 5 | queue, deque |		
- -[palindrome-permutation](https://leetcode.com/problems/palindrome-permutation/) | Easy | `Yes` | 5 | hash |		
- -[flip-game](https://leetcode.com/problems/flip-game/) | Easy | `Yes` | 7 | strings |		
- -[thai-yellow-coconut-curry-mango](http://minimalistbaker.com/thai-yellow-coconut-curry-mango/) | Easy | `Yes` | 5 | two-pointers |		
- -[best-time-to-buy-and-sell-stock-ii](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/) | Easy | No | 15 | greedy |		
+ [max-consecutive-ones](https://leetcode.com/problems/max-consecutive-ones/) | Easy | `Yes` | 4 | ad-hoc |		
+ [construct-the-rectangle](https://leetcode.com/problems/construct-the-rectangle/) | Easy | `Yes` | 10 | two-pointers,math |		
+ [nested-list-weight-sum](https://leetcode.com/problems/nested-list-weight-sum/) | Easy | `Yes` | 5 | recursion |		
+ [logger-rate-limiter](https://leetcode.com/problems/logger-rate-limiter/) | Easy | `Yes` | 5 | hash |		
+ [moving-average-from-data-stream](https://leetcode.com/problems/moving-average-from-data-stream/) | Easy | `Yes` | 5 | queue, deque |		
+ [palindrome-permutation](https://leetcode.com/problems/palindrome-permutation/) | Easy | `Yes` | 5 | hash |		
+ [flip-game](https://leetcode.com/problems/flip-game/) | Easy | `Yes` | 7 | strings |		
+ [thai-yellow-coconut-curry-mango](http://minimalistbaker.com/thai-yellow-coconut-curry-mango/) | Easy | `Yes` | 5 | two-pointers |		
+ [best-time-to-buy-and-sell-stock-ii](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/) | Easy | No | 15 | greedy |		
  [missing-number](https://leetcode.com/problems/missing-number/) | Easy | `Yes` | 5 | math |		
  [strobogrammatic-number](https://leetcode.com/problems/strobogrammatic-number/) | Easy | Yes | 7 | ad-hoc |		
  [paint-fence](https://leetcode.com/problems/paint-fence/) | Easy | No | 15 | dynamic programming |		
  [nth-digit](https://leetcode.com/problems/nth-digit/) | Easy | No | 15 | math |		
  [closest-binary-search-tree-value](https://leetcode.com/problems/closest-binary-search-tree-value/) | Easy | `Yes` | 4 | inorder |		
  [valid-word-square](https://leetcode.com/problems/valid-word-square/) | Easy | No | 20 | strings |		
- [?tab=Descriptio](https://leetcode.com/problems/valid-word-abbreviation/?tab=Description) | Easy | No | 10 | strings |		
- [license-key-formatting](https://leetcode.com/problems/license-key-formatting/) | Easy | `Yes` | 8 | string |		
- [unique-word-abbreviation](https://leetcode.com/problems/unique-word-abbreviation/) | Easy | No | 15 | design, hashmap |		
- [kth-smallest-element-in-a-sorted-matrix](https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/) | Easy | `Yes` | 10 | heap |		
- -[encode-and-decode-strings](https://leetcode.com/problems/encode-and-decode-strings/) | Easy | `Yes` | 6 | strings |		
- -[ugly-number-ii](https://leetcode.com/problems/ugly-number-ii/) | Medium | No | 15 | heap |
+ [valid-word-abbreviation](https://leetcode.com/problems/valid-word-abbreviation/) | Easy | No | 10 | strings |		
+ [license-key-formatting](https://leetcode.com/problems/license-key-formatting/) | Medium | `Yes` | 8 | string |		
+ [unique-word-abbreviation](https://leetcode.com/problems/unique-word-abbreviation/) | Medium | No | 15 | design, hashmap |		
+ [kth-smallest-element-in-a-sorted-matrix](https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/) | Medium | `Yes` | 10 | heap |		
+ [encode-and-decode-strings](https://leetcode.com/problems/encode-and-decode-strings/) | Medium | `Yes` | 6 | strings |		
+ [ugly-number-ii](https://leetcode.com/problems/ugly-number-ii/) | Medium | No | 15 | heap |
  [implement-trie-prefix-tree](https://leetcode.com/problems/implement-trie-prefix-tree/) | Medium | `Yes` | 7 | recursion, tree |
