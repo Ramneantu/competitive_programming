@@ -111,3 +111,5 @@ Problem     | Difficulty | Correct First Try | Time | Tag |
 [license-key-formatting](https://leetcode.com/problems/license-key-formatting/) | Easy | `Yes` | 8 | string |
 [unique-word-abbreviation](https://leetcode.com/problems/unique-word-abbreviation/) | Easy | No | 15 | design, hashmap |
 [kth-smallest-element-in-a-sorted-matrix](https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/) | Easy | `Yes` | 10 | heap |
+[encode-and-decode-strings](https://leetcode.com/problems/encode-and-decode-strings/) | Easy | `Yes` | 6 | strings |
+[ugly-number-ii](https://leetcode.com/problems/ugly-number-ii/) | Medium | No | 15 | heap |
