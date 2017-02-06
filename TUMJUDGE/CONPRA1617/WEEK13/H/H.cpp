@@ -50,10 +50,26 @@ typedef pair<int, int> ii;
 typedef vector<ii> vii;
 typedef long long ll;
 
-int f(int n, int k){
-  if(n == 1)
-    return 1;
-  return (f(n-1, k) + k-1) % n + 1;
+void dijkstra(int src, int nodes, vector<long>& dist, vector<vector<ii> >& G){
+  dist.assign(nodes,INT_MAX);
+  dist[src] = 0;
+  priority_queue<pair<long,int> , vector<pair<long,int> >, greater<pair<long,int> > > pq;
+  pq.push(ii(0,src));
+  while(!pq.empty()){
+    ii top = pq.top(); pq.pop();
+    long d = top.fst;
+    int v = top.snd;
+    if(d == dist[v]){
+      rep(i,0,sz(G[v])-1){
+        int u = G[v][i].fst;
+        int c = G[v][i].snd;
+        if(dist[v] + c < dist[u]){
+          dist[u] = dist[v] + c;
+          pq.push(make_pair(dist[u], u));
+        }
+      }
+    }
+  }
 }
 
 
@@ -62,9 +78,37 @@ int main(){
   int t;
   cin >> t;
   rep(_t,1,t){
-    int n,k;
-    cin >> n >> k;
-    printf("Case #%d: %d\n", _t, f(n,k));
+    int n,m,s;
+    cin >> n >> m >> s;
+
+    vector<vector<ii> >G(n, vector<ii>());
+    rep(_m,0,m-1){
+      int from,to;
+      int c;
+      cin >> from >> to >> c;
+      from--, to--;
+      G[from].push_back(make_pair(to, c));
+      G[to].push_back(make_pair(from, c));
+    }
+    vector<bool> sts(n, false);
+    rep(_s,1,s){
+      int st; cin >> st; st--;
+      sts[st] = true;
+    }
+    vector<long> dist(n,0);
+    dijkstra(0, n, dist, G);
+    long mi = LONG_MAX;
+    rep(i,0,n-1)
+      if(sts[i])
+        mi = min(mi, dist[i]);
+
+
+    printf("Case #%d: %d ", _t, int(mi));
+    rep(i,0,n-1){
+      if(sts[i] && dist[i] == mi)
+        cout << i+1 << " ";
+    }
+    cout << endl;
   }
 
   return 0;
