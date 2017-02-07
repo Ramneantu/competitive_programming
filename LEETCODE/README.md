@@ -114,3 +114,5 @@ Problem     | Difficulty | Correct First Try | Time | Tag |
  [encode-and-decode-strings](https://leetcode.com/problems/encode-and-decode-strings/) | Medium | `Yes` | 6 | strings |		
  [ugly-number-ii](https://leetcode.com/problems/ugly-number-ii/) | Medium | No | 15 | heap |
  [implement-trie-prefix-tree](https://leetcode.com/problems/implement-trie-prefix-tree/) | Medium | `Yes` | 7 | recursion, tree |
+[flip-game-ii](https://leetcode.com/problems/flip-game-ii/) | Medium | `Yes` | 6 | backtracking |
+[diagonal-traverse](https://leetcode.com/problems/diagonal-traverse/) | Medium | `Yes` | 15 | bfs |
