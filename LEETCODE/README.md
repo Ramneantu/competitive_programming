@@ -116,3 +116,7 @@ Problem     | Difficulty | Correct First Try | Time | Tag |
  [implement-trie-prefix-tree](https://leetcode.com/problems/implement-trie-prefix-tree/) | Medium | `Yes` | 7 | recursion, tree |
 [flip-game-ii](https://leetcode.com/problems/flip-game-ii/) | Medium | `Yes` | 6 | backtracking |
 [diagonal-traverse](https://leetcode.com/problems/diagonal-traverse/) | Medium | `Yes` | 15 | bfs |
+[ones-and-zeroes](https://leetcode.com/problems/ones-and-zeroes/) | Medium | `Yes` | 7 | dynamic programming |
+[design-phone-directory](https://leetcode.com/problems/design-phone-directory/) | Medium | No | 20 | hash table |
+[range-addition](https://leetcode.com/problems/range-addition/) | Medium | `Yes` | 5 | math |
+[plus-one-linked-list](https://leetcode.com/problems/plus-one-linked-list/) | Medium | `Yes` | 10 | linked list |
