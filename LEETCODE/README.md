@@ -120,3 +120,4 @@ Problem     | Difficulty | Correct First Try | Time | Tag |
 [design-phone-directory](https://leetcode.com/problems/design-phone-directory/) | Medium | No | 20 | hash table |
 [range-addition](https://leetcode.com/problems/range-addition/) | Medium | `Yes` | 5 | math |
 [plus-one-linked-list](https://leetcode.com/problems/plus-one-linked-list/) | Medium | `Yes` | 10 | linked list |
+[3sum-smaller](https://leetcode.com/problems/3sum-smaller/) | Medium | `Yes` | 15 | two-pointers |
