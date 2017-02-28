@@ -1,6 +1,6 @@
 # Scoresheet
 
-# Statistics
+## Statistics
 
 - **EASY:** 16/16
 - **MEDIUM**: NaN
