@@ -27,4 +27,5 @@ Problem     | Difficulty | Correct First Try | Time | Tag |
 [pokemon-evolution](https://csacademy.com/contest/interview-archive/#task/pokemon-evolution/) | Easy | No | 12 | binary search |
 [anagrams](https://csacademy.com/contest/interview-archive/#task/anagrams/) | Medium | `Yes` | 7 | hash, sorting |
 [array-intersection](https://csacademy.com/contest/interview-archive/#task/array-intersection) | Medium | `Yes` | 7 | hash |
+[bounded-offset-sorting](https://csacademy.com/contest/interview-archive/#task/Bounded-offset-sorting) | Medium | `Yes` | 8 | heap |
 
