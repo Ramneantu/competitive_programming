@@ -3,7 +3,7 @@
 ## Statistics
 
 - **EASY:** 16/16
-- **MEDIUM**: 1/20
+- **MEDIUM**: 2/20
 - **HARD**: NaN
 - **HARDEST**: NaN
 
@@ -26,4 +26,5 @@ Problem     | Difficulty | Correct First Try | Time | Tag |
 [word-permutation](https://csacademy.com/contest/interview-archive/#task/word_permutation/) | Easy | `Yes` | 10 | sorting |
 [pokemon-evolution](https://csacademy.com/contest/interview-archive/#task/pokemon-evolution/) | Easy | No | 12 | binary search |
 [anagrams](https://csacademy.com/contest/interview-archive/#task/anagrams/) | Medium | `Yes` | 7 | hash, sorting |
+[array-intersection](https://csacademy.com/contest/interview-archive/#task/array-intersection) | Medium | `Yes` | 7 | hash |
 
