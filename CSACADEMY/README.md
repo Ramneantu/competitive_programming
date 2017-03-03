@@ -3,7 +3,7 @@
 ## Statistics
 
 - **EASY:** 16/16
-- **MEDIUM**: 2/20
+- **MEDIUM**: 3/20
 - **HARD**: NaN
 - **HARDEST**: NaN
 
