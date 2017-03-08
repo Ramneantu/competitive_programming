@@ -77,32 +77,22 @@ typedef long long ll;
 
 class Solution {
 public:
-    map<int, vector<int> > H;
-    void verticalOrderHelper(TreeNode* root, int v){
-        if(!root)
-            return;
-        queue<pair<TreeNode*,int> > Q;
-        Q.push(make_pair(root, 0));
-
+    vector<vector<int>> verticalOrder(TreeNode* root) {
+        map<int, vector<int> > H;
+        queue<pair<TreeNode*,int> > Q{{{root,0}}};
         while(!Q.empty()){
             auto e = Q.front(); Q.pop();
-            TreeNode* node = e.first;
-            int b = e.second;
-            if(H.find(b) == H.end())
-                H[b] = vector<int>();
-            H[b].push_back(node->val);
+            if(!e.first)
+                continue;
+            H[e.second].push_back(e.first->val);
             
-            if(node->left)
-                Q.push(make_pair(node->left, b-1));
-            if(node->right)
-                Q.push(make_pair(node->right, b+1));
+            Q.push(make_pair(e.first->left, e.second-1));
+            Q.push(make_pair(e.first->right, e.second+1));
         }
-    }
-    vector<vector<int>> verticalOrder(TreeNode* root) {
-        verticalOrderHelper(root, 0);
+        
         vector<vector<int> > res;
-        for(auto it=H.begin(); it!=H.end(); ++it)
-            res.push_back(it->second);
+        for(auto it : H)
+            res.push_back(it.second);
         return res;
     }
 };
