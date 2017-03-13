@@ -124,3 +124,4 @@ Problem     | Difficulty | Correct First Try | Time | Tag |
 [binary-tree-vertical-order-traversal](https://leetcode.com/problems/binary-tree-vertical-order-traversal/) | Medium | `Yes` | 10 | breadth first search |
 [design-snake-game](https://leetcode.com/problems/design-snake-game/) | Medium | No | 15 | queue, deque |
 [flatten-2d-vector](https://leetcode.com/problems/flatten-2d-vector/) | Medium | No | 15 | design |
+[longest-absolute-file-path](https://leetcode.com/problems/longest-absolute-file-path/) | Medium | `Yes` | 15 | string, hashmap |
