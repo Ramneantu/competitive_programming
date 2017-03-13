@@ -123,3 +123,4 @@ Problem     | Difficulty | Correct First Try | Time | Tag |
 [3sum-smaller](https://leetcode.com/problems/3sum-smaller/) | Medium | `Yes` | 15 | two-pointers |
 [binary-tree-vertical-order-traversal](https://leetcode.com/problems/binary-tree-vertical-order-traversal/) | Medium | `Yes` | 10 | breadth first search |
 [design-snake-game](https://leetcode.com/problems/design-snake-game/) | Medium | No | 15 | queue, deque |
+[flatten-2d-vector](https://leetcode.com/problems/flatten-2d-vector/) | Medium | No | 15 | design |
