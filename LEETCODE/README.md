@@ -125,3 +125,4 @@ Problem     | Difficulty | Correct First Try | Time | Tag |
 [design-snake-game](https://leetcode.com/problems/design-snake-game/) | Medium | No | 15 | queue, deque |
 [flatten-2d-vector](https://leetcode.com/problems/flatten-2d-vector/) | Medium | No | 15 | design |
 [longest-absolute-file-path](https://leetcode.com/problems/longest-absolute-file-path/) | Medium | `Yes` | 15 | string, hashmap |
+[longest-substring-with-at-most-k-distinct-characters](https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/) | Medium | No | 20 | string, twopointers, hashmap |
