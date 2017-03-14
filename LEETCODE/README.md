@@ -79,7 +79,7 @@ Problem     | Difficulty | Correct First Try | Time | Tag |
 [remove-linked-list-elements](https://leetcode.com/problems/remove-linked-list-elements/) | Easy | No | 18 | pointers, linked-list |		
  [longest-common-prefix](https://leetcode.com/problems/longest-common-prefix/) | Easy | `Yes` | 6 | string |		
  [add-binary](https://leetcode.com/problems/add-binary/) | Easy | No | 15 | binary, string |		
- [rotate-function](https://leetcode.com/problems/rotate-function/) | Easy | `No | 16 | math |		
+ [rotate-function](https://leetcode.com/problems/rotate-function/) | Easy | No | 16 | math |		
  [heaters](https://leetcode.com/problems/heaters/) | Easy | No | 20 | binary-search |		
  [intersection-of-two-linked-lists](https://leetcode.com/problems/intersection-of-two-linked-lists/) | Easy | No | 15 | two-pointers |		
  [reverse-bits](https://leetcode.com/problems/reverse-bits/) | Easy | No | 7 | bit-manipulation |		
