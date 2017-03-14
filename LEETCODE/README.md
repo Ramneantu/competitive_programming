@@ -1,7 +1,7 @@
 # Scoresheet				
 
-Problem     | Difficulty | Correct First Try | Time | Tag |		
-:----------:|:----------:|:-----------------:|:------------:|:-----------:|:-----------		
+| Problem     | Difficulty | Correct First Try | Time | Tag |		
+|:----------:|:----------:|:-----------------:|:------------:|:-----------:|		
  [Island Perimeter](https://leetcode.com/problems/island-perimeter/) | Easy | No | 8 | |		
  [FizzBuzz](https://leetcode.com/problems/fizz-buzz/) | Easy | `Yes` | 7 | divisibility|		
  [Reverse String](https://leetcode.com/problems/reverse-string/) | Easy | `Yes` | 2 | string |		
