@@ -1,6 +1,6 @@
 # Scoresheet				
 
-| Problem     | Difficulty | Correct First Try | Time | Tag |		
+| Problem     | Difficulty | Correct First Try | Time(min) | Tag |		
 |:----------:|:----------:|:-----------------:|:------------:|:-----------:|		
  [Island Perimeter](https://leetcode.com/problems/island-perimeter/) | Easy | No | 8 | |		
  [FizzBuzz](https://leetcode.com/problems/fizz-buzz/) | Easy | `Yes` | 7 | divisibility|		
