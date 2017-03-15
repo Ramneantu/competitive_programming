@@ -1,4 +1,10 @@
+# ignore everything
 *
+
+# un-ignore directories
+!*/
+
+# un-ignore files in current directory and all subdirectories with the following extensions.
 !/**/*.cpp
 !/**/*.in
 !/**/*.out
