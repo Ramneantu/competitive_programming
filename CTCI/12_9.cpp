@@ -35,7 +35,7 @@ public:
 
   SmartPointer<T>& operator=(SmartPointer<T> &ptr){
     if(this == &ptr){ // we need & because we need to check if the addresses are the same, i.e. if we try to assign the sam object to itself.
-      return *this; // we need to return the dereference, because this points to the adress of the object.
+      return *this; // we need to return the dereference, because this points to the adress of the object, and we want to return the object.
     }
 
     // remove one reference to the old ptr.
