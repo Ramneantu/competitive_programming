@@ -92,7 +92,7 @@ int main(){
 
   for(auto& b: bottles)
     if(b.isPoisoned())
-      cout << "bottle " << b.id() << " poisoned\n";
+      cout << "Bottle #" << b.id() << " was poisoned.\n";
 
 
   vector<TestStripe> testStripes;
