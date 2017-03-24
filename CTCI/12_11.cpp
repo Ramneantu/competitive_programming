@@ -18,6 +18,12 @@ int **malloc_2d(int rows, int cols){
   return a;
 }
 
+void free_2d(int **mat, int rows){
+  for(int i=0; i<rows; ++i)
+    free(mat[i]);
+  free(mat);
+}
+
 int main(){
 
 }
