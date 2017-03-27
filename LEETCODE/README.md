@@ -129,3 +129,5 @@
 [find-permutation](https://leetcode.com/problems/find-permutation/) | Medium | No | 15 | greedy |
 [wiggle-sort](https://leetcode.com/problems/wiggle-sort/) | Medium | `Yes` | 15 | sort, ad-hoc |
 [group-shifted-strings](https://leetcode.com/problems/group-shifted-strings/) | Medium | `Yes` | 15 | string, hashtable |
+[sort-transformed-array](https://leetcode.com/problems/sort-transformed-array/) | Medium | `Yes` | 15 | two-pointers |
+[meeting-rooms-ii](https://leetcode.com/problems/meeting-rooms-ii/) | Medium | `Yes` | 15 | sweepline, greedy |
