@@ -128,3 +128,4 @@
 [longest-substring-with-at-most-k-distinct-characters](https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/) | Medium | No | 20 | string, twopointers, hashmap |
 [find-permutation](https://leetcode.com/problems/find-permutation/) | Medium | No | 15 | greedy |
 [wiggle-sort](https://leetcode.com/problems/wiggle-sort/) | Medium | `Yes` | 15 | sort, ad-hoc |
+[group-shifted-strings](https://leetcode.com/problems/group-shifted-strings/) | Medium | `Yes` | 15 | string, hashtable |
