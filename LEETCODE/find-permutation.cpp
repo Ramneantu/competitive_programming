@@ -14,6 +14,13 @@ struct TreeNode {
 	TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 
+/**
+Idea – Greedy:
+	- start with increasingly sorted permutation, because we want the lexicographically smallest in the end.
+	- for each contiguous D sequence, if we reverse that sequence of numbers we have a valid permutation so far.
+	- then we go on and practically solve the same problem but ignoring the so far built solution.
+**/
+
 class Solution {
 public:
     vector<int> findPermutation(string s) {
