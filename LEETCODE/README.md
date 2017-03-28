@@ -131,3 +131,4 @@
 [group-shifted-strings](https://leetcode.com/problems/group-shifted-strings/) | Medium | `Yes` | 15 | string, hashtable |
 [sort-transformed-array](https://leetcode.com/problems/sort-transformed-array/) | Medium | `Yes` | 15 | two-pointers |
 [meeting-rooms-ii](https://leetcode.com/problems/meeting-rooms-ii/) | Medium | `Yes` | 15 | sweepline, greedy |
+[binary-tree-longest-consecutive-sequence](https://leetcode.com/problems/binary-tree-longest-consecutive-sequence/) | Medium | `Yes` | 15 | hashtable, dfs |
