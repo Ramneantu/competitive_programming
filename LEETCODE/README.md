@@ -133,3 +133,5 @@
 [meeting-rooms-ii](https://leetcode.com/problems/meeting-rooms-ii/) | Medium | `Yes` | 15 | sweepline, greedy |
 [binary-tree-longest-consecutive-sequence](https://leetcode.com/problems/binary-tree-longest-consecutive-sequence/) | Medium | `Yes` | 15 | hashtable, dfs |
 [the-maze](https://leetcode.com/problems/the-maze/) | Medium | `Yes` | 20 | dfs |
+[the-maze-ii](https://leetcode.com/problems/the-maze-ii/) | Medium | `Yes` | 15 | bfs |
+[reverse-words-in-a-string](https://leetcode.com/problems/reverse-words-in-a-string/) | Medium | `Yes` | 15 | string |
