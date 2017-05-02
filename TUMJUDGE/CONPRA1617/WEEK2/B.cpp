@@ -58,7 +58,7 @@ bool isvalid(double x){
   int left = floor(u/x);
   double new_v = v;
   if(v < left*x + x)
-    new_v = left*x + x;
+    new_v = left*x + x; // check that if the last pole on the left of the canyon is enough appart from the end of the canyon.
   int right = floor((d-new_v) / x);
   if(right < 0)
     right = -1;
@@ -73,10 +73,10 @@ double binsearch(){
   double mid;
   while(r-l >= 0.000001){
     mid = (l+r)*0.5;
-    if(isvalid(mid))
+    if(isvalid(mid)) // the distance is too small, we need to increase the distance between poles.
       l = mid;
     else
-      r = mid;
+      r = mid; // the distance between poles is too large.
   }
   return mid;
 }

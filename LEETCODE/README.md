@@ -86,7 +86,7 @@
  [implement-strstr](https://leetcode.com/problems/implement-strstr/) | Easy | No | 8 | string |		
  [third-maximum-number](https://leetcode.com/problems/third-maximum-number/) | Easy | No | 6 | |		
  [min-stack](https://leetcode.com/problems/min-stack/) | Easy | `Yes` | 8 |stack |		
- [range-sum-query-immutable](https://leetcode.com/problems/range-sum-query-immutable/) | Easy | `Yes` | 10 | partial-sums |	
+ [range-sum-query-immutable](https://leetcode.com/problems/range-sum-query-immutable/) | Easy | `Yes` | 10 | partial-sums |
  [count-primes](https://leetcode.com/problems/count-primes/) | Easy | `Yes` | 5 | sieve |		
  [valid-palindrome](https://leetcode.com/problems/valid-palindrome/) | Easy | `Yes` | 8 | string |		
  [first-bad-version](https://leetcode.com/problems/first-bad-version/) | Easy | `Yes` | 10 | binary-search |		
@@ -135,3 +135,6 @@
 [the-maze](https://leetcode.com/problems/the-maze/) | Medium | `Yes` | 20 | dfs |
 [the-maze-ii](https://leetcode.com/problems/the-maze-ii/) | Medium | `Yes` | 15 | bfs |
 [reverse-words-in-a-string](https://leetcode.com/problems/reverse-words-in-a-string/) | Medium | `Yes` | 15 | string |
+[divide-two-integers](https://leetcode.com/problems/divide-two-integers/) | Easy | `Yes` | 1 | |
+[fraction-to-recurring-decimal](https://leetcode.com/problems/fraction-to-recurring-decimal/) | Easy | `Yes` | 1 | |
+[surrounded-regions](https://leetcode.com/problems/surrounded-regions/) | Medium | `Yes` | 15 | dfs |//

@@ -53,7 +53,7 @@ typedef pair<int, int> ii;
 typedef vector<ii> vii;
 typedef int ll;
 
-vector<pair<ll, ll> > p;
+vector<pair<ll, ll> > p; // the second argument is the size of the tree rooted at i.
 
 void initSet(ll n){
   p.resize(n+1);
@@ -66,7 +66,7 @@ ll findSet(ll i){
   if(p[i].first == i)
     return i;
   ll pi = findSet(p[i].first);
-  p[i].first = pi;
+  p[i].first = pi; // after we found i's set we reference to it directly in case we search for it again.
   return pi;
 }
 bool isSameSet(ll i, ll j){ return findSet(p[i].first) == findSet(p[j].first); }
@@ -100,17 +100,23 @@ int main(){
       married[i] = false;
     rep(i,1,a-1)
       scanf("%d", &v[i]);
+
+      // unify the relationship transitivity
     rep(i,1,b){
       int from, to;
       scanf("%d %d", &from, &to);
       unionSet(from, to);
     }
+
+    // unify the mariage transitivity
     rep(i,1,c){
       int from, to;
       scanf("%d %d", &from, &to);
       married[from] = married[to] = true;
       unionSet(from, to);
     }
+
+    // find the richest non-married person that is not related to Jakob, i.e. person a.
     int max_v = -1;
     rep(i,1,a-1)
       if(!married[i] && !isSameSet(i,a))

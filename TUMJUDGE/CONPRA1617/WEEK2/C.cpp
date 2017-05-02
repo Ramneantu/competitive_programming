@@ -58,16 +58,18 @@ vector<int> indeg;
 vector<int> sorted;
 void topsort(){
   queue<int> Q;
+
+  // push all the nodes that have no incoming edges to the queue.
   for(int i=0; i<G.size(); ++i)
     if(!indeg[i])
       Q.push(i);
   while(!Q.empty()){
     int v = Q.front(); Q.pop();
-    sorted.push_back(v);
+    sorted.push_back(v); // node v has no incoming edges, it can be put on the top sorted list.
     rep(i,0,G[v].size()-1){
       int u = G[v][i];
-      indeg[u]--;
-      if(indeg[u] <= 0)
+      indeg[u]--; // if there was a connection v - u. then decrease the degree of u.
+      if(indeg[u] <= 0) // if by above decrement u is free, add him to the queue.
         Q.push(u);
     }
   }
@@ -102,7 +104,7 @@ int main(){
 
       int sum = 0;
       for(int i=0; i<sorted.size(); ++i){
-        sum += v[sorted[i]];
+        sum += v[sorted[i]]; // topsorted list will only contain lists that do not contain cycles.
       }
 
       printf("Case #%d: %d\n", _t, sum);

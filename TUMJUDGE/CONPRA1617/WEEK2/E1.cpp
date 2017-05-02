@@ -73,6 +73,7 @@ int main(int argc, const char * argv[]) {
             hates[sx].push_back(sy);
             hates[sy].push_back(sx);
         }
+        // hates(i) = all the people i hates, so these people can join together and have i as a common enemy.
         for(int i=0; i<hates.size(); ++i)
             for(int j=1; j<hates[i].size(); ++j)
                 union_set(hates[i][0], hates[i][j]);
