@@ -1,3 +1,4 @@
+#include<bits/stdc++.h>
 //====================================
 // Name: 6.7 CTCI Vol 6
 // Date: 24/03/17
@@ -6,7 +7,6 @@
 // Description: simulate the one girl per family rule.
 //====================================
 
-#include<bits/stdc++.h>
 using namespace std;
 
 pair<int,int> simulateFamily(){

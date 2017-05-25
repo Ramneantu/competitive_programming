@@ -1,12 +1,4 @@
-#include <cstdlib>
-#include <cstdio>
-#include <bitset>
-#include <vector>
-#include <iostream>
-#include <map>
-#include <utility>
-#include <cmath>
-#include <cstring>
+#include<bits/stdc++.h>
 
 using namespace std;
 typedef long long ll;

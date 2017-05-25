@@ -1,3 +1,4 @@
+#include<bits/stdc++.h>
 //====================================
 // Name: 12.11 CTCI Vol 6
 // Date: 24/03/17
@@ -6,7 +7,6 @@
 // Description: write a 2d malloc
 //====================================
 
-#include<bits/stdc++.h>
 using namespace std;
 
 int **malloc_2d(int rows, int cols){

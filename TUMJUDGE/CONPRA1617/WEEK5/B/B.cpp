@@ -1,11 +1,4 @@
-#include <bitset>
-#include <vector>
-#include <iostream>
-#include <cstdio>
-#include <cstdlib>
-#include <map>
-#include <utility>
-#include <cmath>
+#include<bits/stdc++.h>
 
 using namespace std;
 

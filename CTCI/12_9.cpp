@@ -1,3 +1,4 @@
+#include<bits/stdc++.h>
 //====================================
 // Name: 12.9 CTCI Vol6
 // Date: 21/03/17
@@ -6,7 +7,6 @@
 // Description: implement a smart pointer in C++.
 //====================================
 
-#include<bits/stdc++.h>
 using namespace std;
 
 template<class T>

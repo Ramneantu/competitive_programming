@@ -1,3 +1,4 @@
+#include<bits/stdc++.h>
 //====================================
 // Name: 6.8 CTCI Vol 6
 // Date: 24/03/17
@@ -6,7 +7,6 @@
 // Description: You have 1000 botles, one of them poisoned, and 10 strips to test them. Testing lasts 7 days. Find out which bottle is poisoned in as few days as possible.
 //====================================
 
-#include<bits/stdc++.h>
 using namespace std;
 
 class Bottle{

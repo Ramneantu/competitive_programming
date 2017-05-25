@@ -1,6 +1,4 @@
-#include <cstdio>
-#include <cstdlib>
-#include <iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
 int banknotes(int A, int B, int S, int N) {

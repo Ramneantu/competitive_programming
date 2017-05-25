@@ -1,3 +1,4 @@
+#include<bits/stdc++.h>
 //====================================
 // Name: Saving the Universe CodeJam Qualification 2008
 // Date: 27/03/17
@@ -6,7 +7,6 @@
 // Description: https://code.google.com/codejam/contest/32013/dashboard
 //====================================
 
-#include<bits/stdc++.h>
 using namespace std;
 
 int minimumSearchEngineSwitches(vector<string>& engines, vector<string>& queries){

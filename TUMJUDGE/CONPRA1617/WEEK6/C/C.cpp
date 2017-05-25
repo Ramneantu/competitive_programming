@@ -1,8 +1,4 @@
-#include <vector>
-#include <iostream>
-#include <cstdio>
-#include <cstdlib>
-#include <cassert>
+#include<bits/stdc++.h>
 
 using namespace std;
 

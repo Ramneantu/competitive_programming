@@ -1,8 +1,4 @@
-#include <bitset>
-#include <iostream>
-#include <chrono>
-#include <cmath>
-#include <cassert>
+#include<bits/stdc++.h>
 
 using namespace std;
 

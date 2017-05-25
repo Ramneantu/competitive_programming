@@ -1,9 +1,4 @@
-#include <cmath>
-#include <cstdio>
-#include <vector>
-#include <iostream>
-#include <algorithm>
-#include <queue>
+#include<bits/stdc++.h>
 using namespace std;
 
 struct node {

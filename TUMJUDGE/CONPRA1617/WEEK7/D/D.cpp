@@ -1,15 +1,4 @@
-#include <map>
-#include <cmath>
-#include <cstdio>
-#include <vector>
-#include <climits>
-#include <cstring>
-#include <cstdlib>
-#include <iostream>
-#include <algorithm>
-#include <unordered_map>
-#include <utility>
-#include <queue>
+#include<bits/stdc++.h>
 
 #define rep(i,a,b) for(int i=int(a); i<=int(b); ++i)
 #define mp(x,y) make_pair((x),(y))

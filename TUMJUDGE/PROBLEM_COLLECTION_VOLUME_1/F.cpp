@@ -1,8 +1,4 @@
-#include <iostream>
-#include <map>
-#include <utility>
-#include <cstring>
-#include <cstdlib>
+#include<bits/stdc++.h>
 
 using namespace std;
 

@@ -1,6 +1,4 @@
-#include <iostream>
-#include <cstdio>
-#include <cstdlib>
+#include<bits/stdc++.h>
 using namespace std;
 
 int bitRemoval(int x, int y) {

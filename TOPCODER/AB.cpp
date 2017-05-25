@@ -1,3 +1,4 @@
+#include<bits/stdc++.h>
 //====================================
 // Name: AB
 // Date: 29/03/17
@@ -6,7 +7,6 @@
 // Description:
 //====================================
 
-#include<bits/stdc++.h>
 using namespace std;
 
 class AB{

@@ -1,7 +1,4 @@
-#include <iostream>
-#include <unordered_map>
-#include <utility>
-#include <chrono>
+#include<bits/stdc++.h>
 
 using namespace std;
 

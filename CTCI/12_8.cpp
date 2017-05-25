@@ -1,3 +1,4 @@
+#include<bits/stdc++.h>
 //====================================
 // Name: 12.8 CTCI Vol6
 // Date: 21/03/17
@@ -6,7 +7,6 @@
 // Description: recursive copy a data structure.
 //====================================
 
-#include<bits/stdc++.h>
 using namespace std;
 
 struct Node{

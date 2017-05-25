@@ -1,11 +1,4 @@
-#include <map>
-#include <cstdio>
-#include <vector>
-#include <cstdlib>
-#include <iostream>
-#include <algorithm>
-#include <utility>
-#include <queue>
+#include<bits/stdc++.h>
 
 using namespace std;
 

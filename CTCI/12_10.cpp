@@ -1,3 +1,4 @@
+#include<bits/stdc++.h>
 //====================================
 // Name: 12.10 CTCI Vol 6
 // Date: 23/03/17
@@ -6,7 +7,6 @@
 // Description: write an alligned malloc.
 //====================================
 
-#include<bits/stdc++.h>
 using namespace std;
 
 void *alligned_malloc(size_t bytes, size_t allign){

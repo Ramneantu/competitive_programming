@@ -1,10 +1,4 @@
-#include <iostream>
-#include <cstring>
-#include <cstdlib>
-#include <vector>
-#include <utility>
-#include <cmath>
-#include <algorithm>
+#include<bits/stdc++.h>
 
 using namespace std;
 

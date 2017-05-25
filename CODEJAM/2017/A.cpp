@@ -1,3 +1,4 @@
+#include<bits/stdc++.h>
 //====================================
 // Name: A
 // Date: 8/4/17
@@ -6,30 +7,6 @@
 // Description:
 //====================================
 
-#include <map>
-#include <set>
-#include <list>
-#include <cmath>
-#include <ctime>
-#include <deque>
-#include <queue>
-#include <stack>
-#include <string>
-#include <bitset>
-#include <cstdio>
-#include <limits>
-#include <vector>
-#include <climits>
-#include <cstring>
-#include <cstdlib>
-#include <fstream>
-#include <numeric>
-#include <sstream>
-#include <iostream>
-#include <algorithm>
-#include <unordered_map>
-#include <bitset>
-#include <utility>
 using namespace std;
 
 #define rep(i,a,b) for(int i=int(a); i<=int(b); ++i)

@@ -1,12 +1,4 @@
-#include <cassert>
-#include <iostream>
-#include <cstdlib>
-#include <cstdio>
-#include <cstring>
-#include <cstdlib>
-#include <map>
-#include <queue>
-#include <algorithm>
+#include<bits/stdc++.h>
 
 using namespace std;
 

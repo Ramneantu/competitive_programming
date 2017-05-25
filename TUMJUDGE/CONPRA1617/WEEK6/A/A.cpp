@@ -1,13 +1,4 @@
-#include <map>
-#include <cmath>
-#include <cstdio>
-#include <vector>
-#include <climits>
-#include <cstring>
-#include <cstdlib>
-#include <iostream>
-#include <algorithm>
-#include <utility>
+#include<bits/stdc++.h>
 using namespace std;
 
 #define rep(i,a,b) for(int i=int(a); i<=int(b); ++i)

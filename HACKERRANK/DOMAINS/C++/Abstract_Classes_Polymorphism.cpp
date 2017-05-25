@@ -1,10 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <map>
-#include <string>
-#include <algorithm>
-#include <set>
-#include <cassert>
+#include<bits/stdc++.h>
 using namespace std;
 
 struct Node{

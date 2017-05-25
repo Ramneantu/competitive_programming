@@ -1,3 +1,4 @@
+#include<bits/stdc++.h>
 //
 //  main.cpp
 //  Plop
@@ -5,8 +6,6 @@
 //  Created by Cosmin Vlaicu on 27.10.2016.
 //  Copyright © 2016 Cosmin Vlaicuasa. All rights reserved.
 //
-#include <iostream>
-#include <vector>
 using namespace std;
 #define rep(i,a,b) for(int i=int(a); i<=int(b); ++i)
 vector<int> parent;

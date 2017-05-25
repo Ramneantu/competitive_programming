@@ -1,10 +1,4 @@
-#include <iostream>
-#include <map>
-#include <utility>
-#include <cstring>
-#include <vector>
-#include <stack>
-#include <cassert>
+#include<bits/stdc++.h>
 
 using namespace std;
 

@@ -1,9 +1,4 @@
-#include <iostream>
-#include <utility>
-#include <cstring>
-#include <vector>
-#include <map>
-#include <algorithm>
+#include<bits/stdc++.h>
 
 using namespace std;
 

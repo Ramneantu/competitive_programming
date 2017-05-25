@@ -1,4 +1,4 @@
-#include <iostream>
+#include<bits/stdc++.h>
 using namespace std;
 enum class Fruit { apple, orange, pear };
 enum class Color { red, green, orange };

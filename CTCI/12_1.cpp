@@ -1,3 +1,4 @@
+#include<bits/stdc++.h>
 //====================================
 // Name: 12_1 CTCI Volume 6
 // Date: 21/03/17
@@ -6,7 +7,6 @@
 // Description: Read last k lines of a file.
 //====================================
 
-#include<bits/stdc++.h>
 using namespace std;
 
 int main(){

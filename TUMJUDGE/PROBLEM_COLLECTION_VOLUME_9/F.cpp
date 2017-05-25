@@ -1,21 +1,4 @@
-#include <iostream>
-#include <algorithm>
-#include <numeric>
-#include <set>
-#include <map>
-#include <queue>
-#include <iostream>
-#include <sstream>
-#include <cstdio>
-#include <cmath>
-#include <ctime>
-#include <cstring>
-#include <cctype>
-#include <cassert>
-#include <limits>
-#include <functional>
-#include <bitset>
-#include <utility>
+#include<bits/stdc++.h>
 
 #define rep(i,a,b) for(ll i=ll(a); i<=ll(b); ++i)
 #define rev(i,b,a) for(ll i=ll(b); i>=ll(a); --i)
