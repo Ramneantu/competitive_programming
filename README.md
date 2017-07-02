@@ -3,6 +3,19 @@
 
 ## Resources for competitive programming
 
+### Indexes
+
+| Link | Description | Status |
+|:----:|:-----------:|:------:|
+| [ICPC Training Resources](https://www-s.acm.illinois.edu/archives/icpc-l/msg00375.html) | contains useful starting points. | *<font color="yellow">doing</font>* |
+
+
+### Videos
+
+| Link | Description | Status |
+|:----:|:-----------:|:------:|
+| [Algorithms Live YT channel](https://www.youtube.com/channel/UCBLr7ISa_YDy5qeATupf26w) | contains insanely good explained tutorials on common algos and ds in CP with problems for each category. | *<font color="yellow">doing</font>* |
+
 ### Books
 | Link | Description | Status |
 |:----:|:-----------:|:------:|
