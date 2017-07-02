@@ -36,6 +36,7 @@
 | Link | Description | Status |
 |:----:|:-----------:|:------:|
 | [Stanford CS 97SI](https://web.stanford.edu/class/cs97si/) | *todo* | *<font color="red">todo</font>* |
+| [Dictionary of Algorithms and Data Structures](https://xlinux.nist.gov/dads/) | index of algos and ds to explanations,proofs,implementations | *<font color="blue">open</font>* |
 
 
 ### Cheatsheets and References
