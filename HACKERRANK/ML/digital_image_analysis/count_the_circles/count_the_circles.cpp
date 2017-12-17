@@ -31,6 +31,7 @@ int main(int argc, char** argv) {
 
 
 #ifdef USE_OPENCV
+    #if 0
     /**
      * TEST: read image just wroten, and show with opencv.
      */
@@ -38,10 +39,12 @@ int main(int argc, char** argv) {
         Mat img = read_IRGB_to_opencv(output_file);
         show_img(img);
     }
+    #endif
 #endif
 
 
 #ifdef USE_OPENCV
+    #if 0
     /**
      * TEST: display grayscale image with opencv.
      */
@@ -49,9 +52,31 @@ int main(int argc, char** argv) {
         Mat gray_opencv = IGRAY_to_opencv(gray);
         show_img(gray_opencv);
     }
+    #endif
 #endif
 
-    
+
+#ifdef USE_OPENCV
+    #if 1
+    /**
+     * TEST: compare own gaussian filter with opencv implementation.
+     */
+    int ksize = 7;
+    double sigma = 2;
+    Mat gaussian_x = getGaussianKernel(ksize, sigma);
+    Mat gaussian_y = getGaussianKernel(ksize, sigma);
+    Mat gaussian_opencv = gaussian_x * gaussian_y.t();
+
+    auto gaussian_mine = gray.gaussian_kernel(ksize,sigma);
+
+    for (int r = 0; r < ksize; ++r) {
+        for (int c = 0; c < ksize; ++c) {
+            assert(fabs(gaussian_opencv.at<double>(Point(r,c)) - gaussian_mine[r][c]) <= 1e-3);
+        }
+    }
+    #endif
+#endif
+
 
 
     return 0;

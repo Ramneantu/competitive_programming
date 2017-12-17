@@ -11,6 +11,8 @@
 #include <vector>
 #include <sstream>
 #include <queue>
+#include <cmath>
+
 using namespace std;
 
 #define DEBUG 1
@@ -104,8 +106,10 @@ public:
         mat_[r][c][1] = green;
         mat_[r][c][2] = blue;
     }
-
 };
+
+
+
 
 class IGRAY {
 private:
@@ -138,6 +142,24 @@ public:
         mat_[r][c] = g;
     }
 
+    vector<vector<double> > gaussian_kernel(int ksize, double sigma) {
+        vector<vector<double> > gauss(ksize, vector<double>(ksize,0));
+        double sum = 0, s = 2 * sigma * sigma;
+
+        int ksize2 = ksize / 2;
+
+        for (int x = -ksize2; x <= ksize2; x++) {
+            for (int y = -ksize2; y <= ksize2; y++) {
+                sum += (gauss[x + ksize2][y + ksize2] = exp(-(x * x + y * y) / s) / s / M_PI);
+            }
+        }
+
+        for (auto& row : gauss)
+            for (auto& x : row)
+                x /= sum;
+
+        return gauss;
+    }
 };
 
 IGRAY rgb2gray (IRGB& img) {
