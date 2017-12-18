@@ -22,19 +22,19 @@ using namespace cv;
 using namespace std;
 
 
-void show_img(const Mat& img) {
-    imshow("window", img);
+void show_img(const Mat& img, string win = "window") {
+    imshow(win, img);
     waitKey(0);
 }
 
 
 Mat IGRAY_to_opencv(IGRAY& gray) {
 
-	Mat img(gray.rows(), gray.cols(), CV_8U);
+	Mat img(gray.rows(), gray.cols(), CV_8UC1);
 
 	for (int r = 0; r < gray.rows(); ++r) {
 		for (int c = 0; c < gray.cols(); ++c) {
-			img.at<uchar>(Point(r,c)) = gray.at(r,c);
+			img.at<uchar>(r,c) = uchar(abs(gray.at(r,c)) > 255 ? 255 : abs(gray.at(r,c)));
 		}
 	}
 	return img;

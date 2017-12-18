@@ -19,6 +19,24 @@ using namespace std;
 #define DBG(code) { if (DEBUG) { do { code }while(0); } }
 
 
+
+/**
+ * Kernels
+ */
+vector<vector<double> > sobel_x =
+                            {
+                                {-1, 0, 1},
+                                {-2, 0, 2},
+                                {-1, 0, 1}
+                            };
+
+vector<vector<double> > sobel_y = {
+                                {-1, -2, -1},
+                                { 0,  0,  0},
+                                { 1,  2,  1}
+                            };
+
+
 /**
  * Image RGB class
  */
@@ -35,7 +53,7 @@ public:
         init (rows_, cols_);
     }
 
-    size_t rows() { return rows_; }
+    size_t rows () { return rows_; }
 
     size_t cols() { return cols_; }
 
@@ -118,10 +136,10 @@ private:
     vector<vector<double> > mat_;
 
 public:
-    IGRAY () {}
+    IGRAY() {}
 
-    IGRAY (size_t rows, size_t cols) : rows_(rows), cols_(cols) {
-        init (rows_, cols_);
+    IGRAY(size_t rows, size_t cols) : rows_(rows), cols_(cols) {
+        this->init(rows_, cols_);
     }
 
     size_t rows () { return rows_; }
@@ -160,6 +178,42 @@ public:
 
         return gauss;
     }
+
+    /**
+     * Convolves this.mat_ with kernel. Uses Border reflection for padding.
+     */
+    IGRAY convolve (vector<vector<double> > kernel) {
+        IGRAY res(this->rows_, this->cols_);
+
+        int kh = kernel.size();
+        int kh2 = kh / 2;
+        int kw = kernel[0].size();
+        int kw2 = kw / 2;
+
+        for (int r = 0; r < this->rows_; ++r) {
+            for (int c = 0; c < this->cols_; ++c) {
+                double sum = 0;
+                for (int i = -kh2; i<=kh2; ++i) {
+                    for (int j = -kw2; j<=kw2; ++j) {
+                        int ii = i + kh2;
+                        int jj = j + kw2;
+                        int rr = r + i;
+                        int cc = c + j;
+                        if (rr < 0) rr = -rr;
+                        if (rr >= this->rows_) rr = rr - 2 * abs(i);
+                        if (cc < 0) cc = -cc;
+                        if (cc >= this->cols_) cc = cc - 2 * abs(j);
+
+                        sum += kernel[ii][jj] * mat_[rr][cc];
+                    }
+                }
+                res.at(r,c,sum);
+            }
+        }
+
+        return res;
+    }
+
 };
 
 IGRAY rgb2gray (IRGB& img) {
