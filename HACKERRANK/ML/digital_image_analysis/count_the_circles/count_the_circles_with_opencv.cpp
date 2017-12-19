@@ -4,7 +4,7 @@ int main (int argc, char** argv) {
 
 
     Mat img = imread(argv[1]);
-    //show_img(img);
+    show_img(img);
     Mat gray;
     cvtColor(img, gray, CV_RGB2GRAY);
     //show_img(gray);
@@ -12,6 +12,24 @@ int main (int argc, char** argv) {
     show_img(gray);
 
 
+    {
+        /// Apply Laplace function
+        Mat abs_dst, dst;
+
+        int scale = 1;
+        int delta = 0;
+        int ddepth = CV_16S;
+        int kernel_size = 3;
+
+        Laplacian( gray, dst, ddepth, kernel_size, scale, delta, BORDER_DEFAULT );
+        convertScaleAbs( dst, abs_dst );
+
+        /// Show what you got
+        show_img( abs_dst );
+    }
+
+
+    cout << "Sobel ...\n";
     Mat grad;
     int scale = 1;
     int delta = 0;
@@ -24,17 +42,17 @@ int main (int argc, char** argv) {
      /// Gradient X
      //Scharr( src_gray, grad_x, ddepth, 1, 0, scale, delta, BORDER_DEFAULT );
      Sobel( gray, grad_x, ddepth, 1, 0, 3, scale, delta, BORDER_DEFAULT );
-     //convertScaleAbs( grad_x, abs_grad_x );
+     convertScaleAbs( grad_x, abs_grad_x );
 
      /// Gradient Y
      //Scharr( src_gray, grad_y, ddepth, 0, 1, scale, delta, BORDER_DEFAULT );
      Sobel( gray, grad_y, ddepth, 0, 1, 3, scale, delta, BORDER_DEFAULT );
-     //convertScaleAbs( grad_y, abs_grad_y );
+     convertScaleAbs( grad_y, abs_grad_y );
 
      /// Total Gradient (approximate)
-    addWeighted( grad_x, 0.5, grad_y, 0.5, 0, grad );
+    addWeighted( abs_grad_x, 0.5, abs_grad_y, 0.5, 0, grad );
 
-     show_img( grad );
+    show_img( grad );
 
  //threshold( grad, gray, 15, 255,cv::THRESH_BINARY);
 
