@@ -1,21 +1,175 @@
 #include "common_opencv.hpp"
 
+using namespace std;
+
+
+vector<pair<int,int> > neighbors {{0,-1}, {-1,-1}, {-1,0}, {-1,1}, {0,1}, {1,1}, {1,0}, {1,-1}};
+
+
+inline bool in_bounds(int i, int j, int n, int m) {
+    return i >= 0 && i<n && j >= 0 && j < m;
+}
+
+int intensity_at(int i, int j, Mat gray) {
+    Scalar intensity = gray.at<uchar>(i,j);
+    int val = intensity.val[0];
+    return val;
+}
+
+
+void dfs(vector<vector<int> >& mat, int i, int j, int& label, Mat gray) {
+
+    if (mat[i][j] == -1 && intensity_at(i,j,gray) >= 255) {
+        mat[i][j] = label;
+    }
+    else 
+        return;
+
+    for (auto n : neighbors) {
+        if (in_bounds(i+n.first, j+n.second, mat.size(), mat[0].size())) {
+            dfs (mat, i+n.first, j+n.second, label, gray);
+        }
+    }
+}
+
+bool is_circle (int i, int j, vector<vector<int> >& viz, vector<vector<int> >& seg) {
+    viz[i][j] = 1;
+
+    for (auto n : neighbors) {
+        if (!in_bounds(i+n.first, j+n.second, viz.size(), viz[0].size())) {
+            return false;
+        }
+        if (viz[i+n.first][j+n.second] == 0 && seg[i+n.first][j+n.second] != -1) {
+            bool res = is_circle(i+n.first, j+n.second, viz, seg);
+            if (res == false)
+                return false;
+        }
+    }
+    return true;
+}
+
+
 int main (int argc, char** argv) {
 
-
+    /**
+     * Read image
+     */
+    cout << "Read image ..." << endl;
     Mat img = imread(argv[1]);
     show_img(img);
+    
+
+    /**
+     * Convert to gray
+     */
+    cout << "Convert to gray ..." << endl;
     Mat gray;
     cvtColor(img, gray, CV_RGB2GRAY);
-    //show_img(gray);
-    GaussianBlur(gray, gray, Size(9, 9), 2, 2);
     show_img(gray);
 
+    /**
+     * Gaussian blur
+     */
+    #if 0
+    int ksize = 9;
+    double sigma = 2;
+    cout << "Gaussian blur ..." << endl;
+    GaussianBlur(gray, gray, Size(ksize, ksize), sigma, sigma);
+    show_img(gray);    
+    #endif
 
+    /**
+     * Erosion
+     */
+    Mat erosion_gray;
+    cout << "Threshold ..." << endl;
+    threshold( gray, erosion_gray, 230, 255, THRESH_BINARY_INV);
+    show_img(erosion_gray);
+
+    cout << "Erosion ..." << endl;
+    int erosion_size = 2;
+    int erosion_iterations = 5;
+    Mat element;
+    for (int i=0; i<erosion_iterations; ++i) {
+        cout << "iteration: " << i << " / " << erosion_iterations << endl;
+
+        if (i <= erosion_iterations / 3) {
+            cout << "Apply CROSS ..." << endl;
+            element = getStructuringElement(
+                                                MORPH_CROSS, 
+                                                Size(2*erosion_size + 1, 2*erosion_size+1),
+                                                Point(erosion_size, erosion_size));
+        }
+        else {
+            cout << "Apply ELLIPSE ..." << endl;
+            element = getStructuringElement(
+                                                MORPH_ELLIPSE, 
+                                                Size(2*erosion_size + 1, 2*erosion_size+1),
+                                                Point(erosion_size, erosion_size));
+        }
+        cout << element << endl;
+
+        //show_img(element);
+        erode(erosion_gray, erosion_gray, element);
+        show_img(erosion_gray);
+    }
+    cout << "Result after " << erosion_iterations << " erosion iterations" << endl;
+    show_img(erosion_gray);
+
+
+    /**
+     * Floodfill connected components
+     */
+
+    // get background label
+    Scalar intensity = erosion_gray.at<uchar>(20, 30);
+    int bg_val = intensity.val[0];
+    cout << "Intensity = " << bg_val << endl << endl;
+
+    vector<vector<int> > seg(erosion_gray.rows, vector<int>(erosion_gray.cols, -1));
+    int label = 1;
+    for (int r=0; r<erosion_gray.rows; ++r) {
+        for (int c = 0; c < erosion_gray.cols; ++c) {
+            if (seg[r][c] == -1 && intensity_at(r,c,erosion_gray) >= 255) { // not labeled
+                dfs(seg, r, c, label, erosion_gray);
+                label++;
+            }
+        }
+    }
+    cout << "#componens after floodfill: " << label-1 << endl;
+
+    int n_circles = 0;
+    vector<std::vector<int> > viz(erosion_gray.rows, vector<int>(erosion_gray.cols, 0));
+    for (int r=0; r<erosion_gray.rows; ++r) {
+        for (int c=0; c<erosion_gray.cols; ++c) {
+            if (seg[r][c] != -1 && viz[r][c] == 0) {
+                n_circles += is_circle(r,c,viz,seg);
+            }
+        }
+    }
+    cout << "#circles: " << n_circles << endl;
+
+    for (int r=0; r<erosion_gray.rows; ++r) {
+        for (int c=0; c<erosion_gray.cols; ++c) {
+            if (seg[r][c] != -1) {
+                erosion_gray.at<uchar>(r,c) = seg[r][c] * 20;
+            }
+        }
+    }
+    show_img (erosion_gray);
+
+
+exit(0);
+
+
+
+    /**
+     * apply Laplace kernel
+     */
     {
-        /// Apply Laplace function
+        cout << "Laplace kernel ..." << endl;
+        
         Mat abs_dst, dst;
-
         int scale = 1;
         int delta = 0;
         int ddepth = CV_16S;
@@ -24,12 +178,14 @@ int main (int argc, char** argv) {
         Laplacian( gray, dst, ddepth, kernel_size, scale, delta, BORDER_DEFAULT );
         convertScaleAbs( dst, abs_dst );
 
-        /// Show what you got
         show_img( abs_dst );
     }
 
 
-    cout << "Sobel ...\n";
+    /**
+     * Sobel kernel
+     */
+    cout << "Sobel kernel ..." << endl;
     Mat grad;
     int scale = 1;
     int delta = 0;
@@ -40,12 +196,10 @@ int main (int argc, char** argv) {
      Mat abs_grad_x, abs_grad_y;
 
      /// Gradient X
-     //Scharr( src_gray, grad_x, ddepth, 1, 0, scale, delta, BORDER_DEFAULT );
      Sobel( gray, grad_x, ddepth, 1, 0, 3, scale, delta, BORDER_DEFAULT );
      convertScaleAbs( grad_x, abs_grad_x );
 
      /// Gradient Y
-     //Scharr( src_gray, grad_y, ddepth, 0, 1, scale, delta, BORDER_DEFAULT );
      Sobel( gray, grad_y, ddepth, 0, 1, 3, scale, delta, BORDER_DEFAULT );
      convertScaleAbs( grad_y, abs_grad_y );
 
@@ -54,10 +208,9 @@ int main (int argc, char** argv) {
 
     show_img( grad );
 
- //threshold( grad, gray, 15, 255,cv::THRESH_BINARY);
 
- //show_img( grad );
 
+    exit (0);
 
 #if 0
      /// Establish the number of bins
