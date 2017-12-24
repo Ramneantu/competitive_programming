@@ -39,7 +39,50 @@ int main(int argc, char** argv) {
      */
     
     IGRAY gray = rgb2gray(img);
-    show_img(IGRAY_to_opencv(gray), "gray");
+    show_img(gray);
+
+
+    /**
+     * Erosion
+     */
+    cout << "Threshold ..." << endl;
+    IGRAY erosion_gray = gray.threshold(230, 255, IGRAY::THRESHOLD_TYPE::THRESH_BINARY_INV);
+    show_img(erosion_gray);
+
+#if 0
+    cout << "Erosion ..." << endl;
+    int erosion_size = 2;
+    int erosion_iterations = 5;
+    Mat element;
+    for (int i=0; i<erosion_iterations; ++i) {
+        cout << "iteration: " << i << " / " << erosion_iterations << endl;
+
+        if (i <= erosion_iterations / 3) {
+            cout << "Apply CROSS ..." << endl;
+            element = getStructuringElement(
+                                                MORPH_CROSS, 
+                                                Size(2*erosion_size + 1, 2*erosion_size+1),
+                                                Point(erosion_size, erosion_size));
+        }
+        else {
+            cout << "Apply ELLIPSE ..." << endl;
+            element = getStructuringElement(
+                                                MORPH_ELLIPSE, 
+                                                Size(2*erosion_size + 1, 2*erosion_size+1),
+                                                Point(erosion_size, erosion_size));
+        }
+        cout << element << endl;
+
+        //show_img(element);
+        erode(erosion_gray, erosion_gray, element);
+        show_img(erosion_gray);
+    }
+    cout << "Result after " << erosion_iterations << " erosion iterations" << endl;
+    show_img(erosion_gray);
+    #endif
+
+
+
 
 
     uchar background_val = gray.at(20,30);

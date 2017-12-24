@@ -135,7 +135,16 @@ private:
     size_t cols_;
     vector<vector<double> > mat_;
 
+
 public:
+
+    enum class THRESHOLD_TYPE : int
+    {
+        THRESH_BINARY = 0,
+        THRESH_BINARY_INV
+    };
+
+    
     IGRAY() {}
 
     IGRAY(size_t rows, size_t cols) : rows_(rows), cols_(cols) {
@@ -145,6 +154,11 @@ public:
     size_t rows () { return rows_; }
 
     size_t cols () { return cols_; }
+
+    inline bool in_bounds(int i, int j) {
+        return i >= 0 && i<this->rows_ && j >= 0 && j < this->cols_;
+    }
+
 
     void init (size_t rows, size_t cols) {
         rows_ = rows;
@@ -213,6 +227,68 @@ public:
 
         return res;
     }
+
+
+    IGRAY erosion(const vector<vector<double> >& pattern) {
+
+      int pn = pattern.size();
+      int pm = pattern[0].size();
+
+      IGRAY res(this->rows_, this->cols_);
+
+      for(int r=0; r<this->rows_; ++r) {
+        for(int c=0; c<this->cols_; ++c) {
+          double new_val = 1;
+          for(int k=-pn/2; k<=pn/2; ++k) {
+            for(int l=-pm/2; l<=pm/2; ++l) {
+              int rr = r + k;
+              int cc = c + l;
+              if (!in_bounds(rr,cc) || (this->mat_[rr][cc] != 1)){
+                  new_val = 0;
+              }
+            }
+          }
+          res.at(r,c,new_val);
+        }
+      }
+      return res;
+    }
+
+
+    IGRAY threshold (double threshold, double max_value, THRESHOLD_TYPE type = THRESHOLD_TYPE::THRESH_BINARY) {
+
+        IGRAY res(this->rows_, this->cols_);        
+
+        for (int r = 0; r < this->rows_; ++r)
+        {
+            for (int c = 0; c < this->cols_; ++c)
+            {
+                if (type == THRESHOLD_TYPE::THRESH_BINARY)
+                {
+                    if (this->mat_[r][c] > threshold)
+                    {
+                        res.at(r,c,max_value);
+                    }
+                    else {
+                        res.at(r,c,0);
+                    }
+                }
+                else if (type == THRESHOLD_TYPE::THRESH_BINARY_INV)  
+                {
+                    if (this->mat_[r][c] > threshold)
+                    {
+                        res.at(r,c,0);
+                    }
+                    else {
+                        res.at(r,c,max_value);
+                    }
+                }
+            }
+        }
+
+        return res;
+    }
+
 
 };
 
