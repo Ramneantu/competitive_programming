@@ -16,7 +16,7 @@ using namespace std;
 #define DEBUG 1
 #define DBG(code) { if (DEBUG) { do { code }while(0); } }
 
-#define USE_OPENCV 1
+//#define USE_OPENCV 1
 
 /**
  * Kernels
@@ -335,6 +335,7 @@ IGRAY rgb2gray (IRGB& img) {
 
 
 vector<pair<int,int> > neighbors {{0,-1}, {-1,-1}, {-1,0}, {-1,1}, {0,1}, {1,1}, {1,0}, {1,-1}};
+//vector<pair<int,int> > neighbors {{0,-1}, {-1,0}, {0,1}, {1,0}};
 
 
 inline bool in_bounds(int i, int j, int n, int m) {
@@ -566,6 +567,7 @@ int get_n_circles (IGRAY img) {
         show_img (IGRAY_to_opencv(img));
     }
 
+
     Mat IRGB_to_opencv(IRGB& img) {
 
         Mat image(img.rows(), img.cols(), CV_8UC3, Scalar(0,0,0));
@@ -579,6 +581,10 @@ int get_n_circles (IGRAY img) {
             }
         }
         return image;   
+    }
+
+    void show_img (IRGB& img, string win = "window") {
+        show_img (IRGB_to_opencv(img));
     }
 
 
@@ -631,10 +637,10 @@ int find_optimal_n_circles (IGRAY img) {
 
     while (true) {
         //cout << "iteration: " << k << endl;
-        show_img(img);
+        //show_img(img);
         img = img.erode(cross);
         int cur_n_circles = get_n_circles (img);
-        cout << "#circles found: " << cur_n_circles << endl;
+        //cout << "#circles found: " << cur_n_circles << endl;
         if (cur_n_circles < n_circles) {
             //k--;
             break;
@@ -648,6 +654,277 @@ int find_optimal_n_circles (IGRAY img) {
 }
 
 
+#if 0
+vector<pair<int,int> > watershed_maxima(IGRAY& img, int si, int sj, vector<vector<int> >& D) {
+    // img is thresholded: background = 0, non-background = 255
+
+
+    stack<pair<int,int> > S;
+    S.push({si,sj});
+
+    while(!S.empty()) {
+
+        auto e = S.top();
+        int i = e.first;
+        int j = e.second;
+        cout << i << "," << j << endl;
+
+        if(img.at(i,j) == 255) {
+
+            for(auto n : neighbors) {
+                int ni = i+n.first;
+                int nj = j+n.second;
+
+                if(in_bounds(ni,nj,img.rows(), img.cols())) {
+                    D[i][j] = 1 + min(D[ni][nj], D[i][j]);
+                    S.push({ni,nj});
+                }
+            }
+        }
+
+        S.pop();
+    }
+
+    IGRAY res(img.rows(), img.cols());
+    for (int r = 0; r < res.rows(); ++r) {
+        for (int c = 0; c < res.cols(); ++c) {
+            if (img.at(r,c) == 0) {
+                res.at(r,c,0);
+            }
+            else {
+                res.at(r,c,D[r][c] * 5);
+            }
+        }
+    }
+    show_img(res);
+
+
+    vector<pair<int,int> > maxi;
+    return maxi;
+}
+#endif
+
+
+int watershed_maxima_bfs(IGRAY& img, IGRAY& gray) {
+
+    vector<vector<int> > viz(img.rows(), vector<int>(img.cols(), 0));
+    //queue<pair<pair<int,int>,double> > Q;
+    priority_queue<pair<double, pair<int,int> >, vector<pair<double, pair<int,int> > >, greater<pair<double, pair<int,int> > > > pq;
+
+    vector<vector<double> > dist(img.rows(), vector<double>(img.cols(), INT_MAX));
+
+    for (int r = 0; r < img.rows(); ++r) {
+        for (int c = 0; c < img.cols(); ++c) {
+            if (img.at(r,c) == 0) {
+                viz[r][c] = 1;
+                for (auto n : neighbors) {
+                    int nr = r+n.first;
+                    int nc = c+n.second;
+
+                    if (in_bounds(nr,nc,img.rows(), img.cols())) {
+                        if (img.at(nr,nc) == 255) {
+                            //Q.push({{r,c},0});
+                            pq.push({0,{r,c}});
+                            dist[r][c] = 0;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    while(!pq.empty()){
+        auto e = pq.top();
+        pq.pop();
+        double d = e.first;
+        int i = e.second.first;
+        int j = e.second.second;
+        if(d == dist[i][j]){
+
+            for (auto n : neighbors) {
+                int ni = i+n.first;
+                int nj = j+n.second;
+                if (in_bounds(ni,nj,gray.rows(), gray.cols()) && img.at(ni,nj) == 255) {
+
+                    double w = sqrt((i-ni)*(i-ni) + (j-nj)*(j-nj));
+
+                    if (dist[i][j] + w < dist[ni][nj]) {
+                        dist[ni][nj] = dist[i][j] + w;
+                        gray.at(ni,nj, (1 * int(dist[ni][nj])) % 256);
+                        pq.push({dist[ni][nj], {ni, nj}});
+                    }
+                }
+            }
+        }
+    }
+
+
+    //cout << Q.size() << endl;
+
+    #if 0
+    while(!Q.empty()) {
+        auto e = Q.front(); Q.pop();
+        int i = e.first.first;
+        int j = e.first.second;
+        double d = e.second;
+
+        for (auto n : neighbors) {
+            int ni = i+n.first;
+            int nj = j+n.second;
+            if (in_bounds(ni,nj,gray.rows(), gray.cols())) {
+                if (viz[ni][nj] == 0 && img.at(ni,nj) == 255) {
+                    double new_d = d+1; // sqrt((i-ni)*(i-ni) + (j-nj)*(j-nj));
+                    Q.push({{ni, nj}, new_d});
+                    gray.at(ni,nj, (3 * int(new_d)) % 256);
+                    viz[ni][nj] = 1;
+                }
+            }
+        }
+    }
+    #endif
+    return 0;
+}
+
+inline double l2(double x, double y, double q, double r) {
+    return sqrt((x-q)*(x-q) + (y-r)*(y-r));
+}
+
+typedef pair<double,double> DD;
+
+inline double l2 (DD a, DD b) {
+    return l2 (a.first, a.second, b.first, b.second);
+}
+
+
+inline DD merge (DD a, DD b) {
+    DD m;
+    m.first = (a.first + b.first) * 0.5;
+    m.second = (a.second + b.second) * 0.5;
+
+    return m;
+}
+
+
+
+void draw_maxi(IGRAY& gray, map<pair<double,double>, bool>& maxi) {
+    for (auto r : maxi) {
+        int i = r.first.first;
+        int j = r.first.second;
+
+        gray.at(i,j,255);
+        /*
+
+        if (gray.at(i,j) > 0) {
+            gray.at(i,j, 0);
+        }
+        else {
+            gray.at(i,j,255);
+        }*/
+    }
+    //show_img(gray);
+}
+
+
+int find_optimal_circles(IGRAY& img, int ksize) {
+
+    IGRAY gray (img.rows(), img.cols());
+    for (int r = 0; r < img.rows(); ++r) {
+        for (int c = 0; c < img.cols(); ++c) {
+            gray.at(r,c,img.at(r,c));
+        }
+    }
+
+    int r = watershed_maxima_bfs(img, gray);
+    //show_img(gray);
+
+    int kh2 = ksize / 2;
+    int kw2 = ksize / 2;
+
+    map<pair<double,double>, bool> maxi;
+
+    IGRAY dilated_gray (gray.rows(), gray.cols());
+
+    /**
+     * Find local maximas by comparing dilated img with the original img.
+     */
+    for (int r = 0; r<gray.rows(); ++r) {
+        for (int c = 0; c < gray.cols(); ++c) {
+
+            if (gray.at(r,c) > 0) {
+                double maxim = gray.at(r,c);
+                for (int i = -kh2; i<=kh2; ++i) {
+                    for (int j = -kw2; j<=kw2; ++j) {
+                        int rr = r + i;
+                        int cc = c + j;
+                        if (in_bounds(rr,cc,gray.rows(), gray.cols())) {
+                            if (maxim < gray.at(rr,cc)) {
+                                maxim = gray.at(rr,cc);
+                            }
+                        }
+                        else {
+                            maxim = INT_MAX;
+                        }
+                    }
+                }
+                dilated_gray.at(r,c,maxim);
+            }
+        }
+    }
+    //show_img(dilated_gray);
+
+    // local maximas are pixels in dilated img which are equal to ones in img
+    for (int r = 0; r<gray.rows(); ++r) {
+        for (int c = 0; c < gray.cols(); ++c) {
+            if (gray.at(r,c) > 0) {
+                if (gray.at(r,c) == dilated_gray.at(r,c)) {
+                    maxi[{r,c}] = true;
+                }
+            }
+        }
+    }
+    //cout << "#local maximas: " << maxi.size() << endl;
+    //draw_maxi(dilated_gray, maxi);
+
+
+    vector<pair<double,double> > res;
+    while (true) {
+        bool merged = false;
+
+        for (auto k : maxi) {
+            for (auto l : maxi) {
+                if (k.first != l.first) {
+                    double d = l2 (k.first, l.first);
+
+                    if (d < 30) {
+                        merged = true;
+                        auto m = merge (k.first, l.first);
+
+                        maxi.erase(l.first);
+                        maxi.erase(k.first);
+                        maxi[m] = true;
+                        break;
+                    }
+                }
+            }
+            if (merged)
+                break;
+        }
+
+        if(!merged)
+            break;
+    }
+    //show_img(gray);
+    //draw_maxi(gray, maxi);
+
+/*
+    for (auto r : maxi)
+        cout << r.first.first << ", " << r.first.second << endl;
+*/
+    return maxi.size();
+}
+
+
 int main(int argc, char** argv) {
 
 
@@ -657,127 +934,12 @@ int main(int argc, char** argv) {
     IRGB img;
     img.read();
 
-
-    /**
-     * Write image to txt file.
-     */
-    #if 0
-    auto pos = input_file.rfind('.');
-    string output_file = input_file.substr(0, pos) + ".out";
-    img.write(output_file);
-    #endif
-
     /**
      * Convert to grayscale
      */
     //////cout << "Gray ..." << endl;
     IGRAY gray = rgb2gray(img);
-    show_img(gray);
-
-#ifdef USE_OPENCV
-    vector<vector<double> > gaussian = gray.gaussian_kernel(ksize,sigma);
-    #if 1
-    /**
-     * TEST: Test sobel against opencv implementation
-     */
-    //cout << "Sobel ..." << endl;
-
-    for(int g=0; g<3; ++g) {
-        gray = gray.convolve(gaussian);
-        show_img(gray);
-    }
-
-    IGRAY img_sobel_x = gray.convolve(sobel_x);
-
-    IGRAY img_sobel_y = gray.convolve(sobel_y);
-
-
-    IGRAY img_sobel(gray.rows(), gray.cols());
-
-    for (int r = 0; r < img_sobel.rows(); ++r) {
-        for (int c = 0; c < img_sobel.cols(); ++c) {
-            //if (img_sobel_x.at(r,c) > 255||img_sobel_y.at(r,c) > 255)
-            //    //cout << "OVER 9000" << endl;
-            //img_sobel.at(r,c, sqrt(0.5 * img_sobel_x.at(r,c) * img_sobel_x.at(r,c) + 0.5 * img_sobel_y.at(r,c) * img_sobel_y.at(r,c)));
-            img_sobel.at(r,c, 0.5 * abs(img_sobel_x.at(r,c)) + 0.5 * abs(img_sobel_y.at(r,c)));
-        }
-    }
-    //show_img(IGRAY_to_opencv(img_sobel), "mine");
-    show_img(IGRAY_to_opencv(img_sobel_x), "x");
-    show_img(IGRAY_to_opencv(img_sobel_y), "y");
-    show_img(IGRAY_to_opencv(img_sobel), "sobel");
-
-    IGRAY img_laplace = gray.convolve(laplace3x3);
-    show_img(IGRAY_to_opencv(img_laplace), "laplace");    
-
-
-    //cout << "DoG ..." << endl;
-    IGRAY I1(gray.rows(), gray.cols());
-    for (int r = 0; r < I1.rows(); ++r) {
-        for (int c = 0; c < I1.cols(); ++c) {
-            I1.at(r,c, gray.at(r,c));
-        }
-    }
-
-    IGRAY I2 = I1.convolve(gaussian);
-
-    for (int k = 1; k<=6; ++k) {
-        IGRAY I3(I1.rows(), I1.cols());
-        for (int r = 0; r < I1.rows(); ++r) {
-            for (int c = 0; c < I1.cols(); ++c) {
-                I3.at(r,c, I2.at(r,c) - I1.at(r,c));
-            }
-        }
-        show_img(IGRAY_to_opencv(I3), "DoG");
-
-
-        for (int r = 0; r < I1.rows(); ++r) {
-            for (int c = 0; c < I1.cols(); ++c) {
-                I1.at(r,c, I2.at(r,c));
-            }
-        }
-
-
-        for (int r = 0; r < I2.rows(); ++r) {
-            for (int c = 0; c < I2.cols(); ++c) {
-                I2.at(r,c, I3.at(r,c));
-            }
-        }
-    }
-
-
-    // apply opencv sobel
-    {
-        #if 1
-        Mat gray_opencv = IGRAY_to_opencv(gray);
-        Mat grad;
-        int scale = 1;
-        int delta = 0;
-        int ddepth = CV_16S;
-
-        /// Generate grad_x and grad_y
-         Mat grad_x, grad_y;
-         Mat abs_grad_x, abs_grad_y;
-
-         /// Gradient X
-         //Scharr( src_gray, grad_x, ddepth, 1, 0, scale, delta, BORDER_DEFAULT );
-         Sobel( gray_opencv, grad_x, ddepth, 1, 0, 3, scale, delta, BORDER_DEFAULT );
-         convertScaleAbs( grad_x, abs_grad_x );
-
-         /// Gradient Y
-         //Scharr( src_gray, grad_y, ddepth, 0, 1, scale, delta, BORDER_DEFAULT );
-         Sobel( gray_opencv, grad_y, ddepth, 0, 1, 3, scale, delta, BORDER_DEFAULT );
-         convertScaleAbs( grad_y, abs_grad_y );
-
-         /// Total Gradient (approximate)
-        addWeighted( abs_grad_x, 0.5, abs_grad_y, 0.5, 0, grad );
-
-        show_img(grad, "sobel opencv");
-        #endif
-    }
-    #endif
-#endif
-
+    //show_img(gray);
 
 
     /**
@@ -789,23 +951,22 @@ int main(int argc, char** argv) {
     ////cout << "bg: " << bg << endl;
 
     IGRAY erosion_gray = gray.threshold(bg, 255, IGRAY::THRESHOLD_TYPE::THRESH_BINARY_BACKGROUND);
-    show_img(erosion_gray);
+    //show_img(erosion_gray);
 
-    vector<vector<double> > ellipse = { 
-                                        {0,   0,   0,   1,   0,  0, 0},
-                                        {0,   0,   1,   1,   1,  0, 0},
-                                        {0,   1,   1,   1,   1,  1, 0},
-                                        {1,   1,   1,   1,   1,  1, 1},
-                                        {0,   1,   1,   1,   1,  1, 0},
-                                        {0,   0,   1,   1,   1,  0, 0},
-                                        {0,   0,   0,   1,   0,  0, 0}};
+    cout << find_optimal_circles(erosion_gray, 15) << endl;
 
-    /**
-     * Get nr of cicles
-     */
-    //cout << get_n_circles (erosion_gray) << endl;
-    cout << find_optimal_n_circles (erosion_gray) << endl;
-
+    /*
+    ofstream fout("/Users/whoiscris/competitive_programming/HACKERRANK/ML/digital_image_analysis/count_the_circles/testcase5.out");
+    fout << erosion_gray.rows() << " " << erosion_gray.cols() << endl;
+    for (int r = 0; r < erosion_gray.rows(); ++r) {
+        for (int c = 0; c < erosion_gray.cols(); ++c) {
+            fout << erosion_gray.at(r,c) << " ";
+        }
+        fout << endl;
+    }
+    fout.close();
+    exit(0);
+    */
 
     return 0;
 }
