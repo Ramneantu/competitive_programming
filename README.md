@@ -10,10 +10,10 @@
 
 
 ### Problems
-| Problem | Solution | Comments |
-|:-------:|:--------:|:--------:|
-| [GBus count](https://code.google.com/codejam/contest/4374486/dashboard#s=p0) | local | implementation existent, no ACC. |
-| [Sort a scrambled itinerary](https://code.google.com/codejam/contest/4374486/dashboard#s=p2) | local | proposal existent |
+| Problem | Solution | Tags | Comments |
+|:-------:|:--------:|:----:|:--------:|
+| [GBus count](https://code.google.com/codejam/contest/4374486/dashboard#s=p0) | [solution(with explanation)](https://github.com/whoiscris/competitive_programming/blob/master/CODEJAM/2018%20kickstart/practice-round/Gbus-count/Gbus-count.cpp) | Range Sum Query, [Difference Array](https://www.geeksforgeeks.org/difference-array-range-update-query-o1/) | |
+| [Sort a scrambled itinerary](https://code.google.com/codejam/contest/4374486/dashboard#s=p2) | local | proposal existent | Hash-map | |
 
 ### Index
 
