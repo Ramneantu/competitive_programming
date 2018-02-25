@@ -3,6 +3,14 @@
 #include <vector>
 using namespace std;
 
+/*
+Start with an array Diff(maxcities+1, 0).
+For each a,b pair, do D[a]+= x and D[b+1]-= x, where in our case x = 1 always. 
+This operation encodes the fact that all elements in the interval [a,b] are increased by x.
+After this create a prefix sum array, psum, where psum[0] = 0, and psum[i] = psum[i-1]+Diff[i]. This basically encodes the final
+value at position i, after all the a,b operations were performed.
+The answers for any position i, lies in psum[i].
+*/
 
 int main () {
 
