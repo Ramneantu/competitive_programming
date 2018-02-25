@@ -4,6 +4,9 @@
 # un-ignore directories
 !*/
 
+# ignore resources directory
+resources/
+
 # un-ignore files in current directory and all subdirectories with the following extensions.
 !/**/*.cpp
 !/**/*.in
