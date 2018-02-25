@@ -3,7 +3,19 @@
 
 ## Resources for competitive programming
 
-### Indexes
+### todo
+| Link | Comments |
+|:----:|:--------:|
+|[Range Sum Queries withouth updates](https://www.geeksforgeeks.org/range-sum-queries-without-updates/) | todo |
+
+
+### Problems
+| Problem | Solution | Comments |
+|:-------:|:--------:|:--------:|
+| [GBus count](https://code.google.com/codejam/contest/4374486/dashboard#s=p0) | local | implementation existent, no ACC. |
+| [Sort a scrambled itinerary](https://code.google.com/codejam/contest/4374486/dashboard#s=p2) | local | proposal existent |
+
+### Index
 
 | Link | Description | Status |
 |:----:|:-----------:|:------:|
